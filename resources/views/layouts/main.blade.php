@@ -23,11 +23,11 @@
 
 <body>
 	<!----Loader Start---->
-	<div class="ms_loader">
+	<!-- <div class="ms_loader">
 		<div class="wrap">
 		  <img src="MusicLayout/images/loader.gif" alt="">
 		</div>
-	</div>
+	</div> -->
     <!----Main Wrapper Start---->
     <div class="ms_main_wrapper">
         @include('partials.sidebar')
