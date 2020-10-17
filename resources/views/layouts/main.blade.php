@@ -55,10 +55,10 @@
 					</button>
                     <div class="modal-body">
                         <div class="ms_register_img">
-                            <img src="MusicLayout/images/register_img.png" alt="" class="img-fluid" />
+                            <img src="{{asset('MusicLayout/images/register_img.png')}}" alt="" class="img-fluid" />
                         </div>
                         <div class="ms_register_form">
-                            <h2>Register / Sign Up</h2>
+                            <h2>Đăng kí / Đăng nhập</h2>
                             <div class="form-group">
                                 <input type="text" placeholder="Enter Your Name" class="form-control">
                                 <span class="form_icon">
@@ -100,7 +100,7 @@
 					</button>
                     <div class="modal-body">
                         <div class="ms_register_img">
-                            <img src="MusicLayout/images/register_img.png" alt="" class="img-fluid" />
+                            <img src="{{asset('MusicLayout/images/register_img.png')}}" alt="" class="img-fluid" />
                         </div>
                         <div class="ms_register_form">
                             <h2>login / Sign in</h2>

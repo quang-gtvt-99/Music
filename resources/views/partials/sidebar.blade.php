@@ -6,24 +6,25 @@
             <div class="ms_sidemenu_inner">
                 <div class="ms_logo_inner">
                     <div class="ms_logo">
-                        <a href="index-2.html"><img src="MusicLayout/images/logo.png" alt="" class="img-fluid"/></a>
+                        <a href="index-2.html"><img src="{{asset('MusicLayout/images/logo.png')}}" alt="" class="img-fluid"/></a>
                     </div>
                     <div class="ms_logo_open">
-                        <a href="index-2.html"><img src="MusicLayout/images/open_logo.png" alt="" class="img-fluid"/></a>
+                        <a href="index-2.html"><img src="{{asset('MusicLayout/images/open_logo.png')}}" alt="" class="img-fluid"/></a>
                     </div>
                 </div>
                 <div class="ms_nav_wrapper">
                     <ul>
-                        <li><a href="index-2.html" class="active" title="Discover">
+                        <li><a href="{{ route('home.index') }}" class="active" title="Trang chủ">
 						<span class="nav_icon">
 							<span class="icon icon_discover"></span>
 						</span>
 						<span class="nav_text">
-							discover
+							Trang chủ
 						</span>
 						</a>
-                        </li>
-                        <li><a href="album.html" title="Albums">
+						</li>
+						
+                        <li><a href="{{ route('artist.index') }}" title="Albums">
 						<span class="nav_icon">
 							<span class="icon icon_albums"></span>
 						</span>
@@ -31,25 +32,28 @@
 							albums
 						</span>
 						</a>
-                        </li>
-                        <li><a href="artist.html" title="Artists">
+						</li>
+						
+                        <li><a href="{{ route('artist.index') }}" title="Ca sĩ">
 						<span class="nav_icon">
 							<span class="icon icon_artists"></span>
 						</span>
 						<span class="nav_text">
-							artists
+							Ca sĩ
 						</span>
 						</a>
-                        </li>
-                        <li><a href="genres.html" title="Genres">
+						</li>
+						
+                        <li><a href="{{ route('genres.index') }}" title="Thể loại">
 						<span class="nav_icon">
 							<span class="icon icon_genres"></span>
 						</span>
 						<span class="nav_text">
-							genres
+							Thể loại
 						</span>
 						</a>
-                        </li>
+						</li>
+						
                         <li><a href="top_track.html" title="Top Tracks">
 						<span class="nav_icon">
 							<span class="icon icon_tracks"></span>
@@ -58,16 +62,18 @@
 							top tracks
 						</span>
 						</a>
-                        </li>
-                        <li><a href="free_music.html" title="Free Music">
+						</li>
+						
+                        <li><a href="free_music.html" title="Top download">
 						<span class="nav_icon">
 							<span class="icon icon_music"></span>
 						</span>
 						<span class="nav_text">
-							free music
+							Top Download
 						</span>
 						</a>
-                        </li>
+						</li>
+						
                         <li><a href="stations.html" title="Stations">
 						<span class="nav_icon">
 							<span class="icon icon_station"></span>
@@ -87,7 +93,8 @@
 							downloads
 						</span>
 						</a>
-                        </li>
+						</li>
+						
                         <li><a href="purchase.html" title="Purchased">
 						<span class="nav_icon">
 							<span class="icon icon_purchased"></span>
@@ -96,7 +103,8 @@
 							purchased
 						</span>
 						</a>
-                        </li>
+						</li>
+						
                         <li><a href="favourite.html" title="Favourites">
 						<span class="nav_icon">
 							<span class="icon icon_favourite"></span>
@@ -105,7 +113,8 @@
 							favourites
 						</span>
 						</a>
-                        </li>
+						</li>
+						
                         <li><a href="history.html" title="History">
 						<span class="nav_icon">
 							<span class="icon icon_history"></span>
@@ -125,7 +134,8 @@
 							featured playlist
 						</span>
 						</a>
-                        </li>
+						</li>
+						
                         <li><a href="add_playlist.html" title="Create Playlist">
 						<span class="nav_icon">
 							<span class="icon icon_c_playlist"></span>

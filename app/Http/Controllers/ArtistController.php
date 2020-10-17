@@ -8,7 +8,7 @@ use App\Models\Artist;
 use App\Models\SongArtist;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ArtistController extends Controller
 {
     private  $song, $genres, $artist, $songArtist;
     public function __construct(Song $song, Genres $genres, Artist $artist, SongArtist $songArtist)
@@ -21,10 +21,8 @@ class HomeController extends Controller
     }
 
     public function index(){
-        $songs = $this->song->take(15)->get();
-        $songRelase = $this->song->latest()->limit(5)->get();
         $artists = $this->artist->take(6)->get();
-        $genres=$this->genres->get();
-        return view('home',compact('songs','artists','songRelase','genres'));
+        $artistAll = $this->artist->get();
+        return view('artist.index',compact('artists','artistAll'));
     }
 }

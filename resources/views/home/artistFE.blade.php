@@ -1,8 +1,8 @@
 <!---Featured Artists Music--->
 <div class="ms_featured_slider">
     <div class="ms_heading">
-        <h1>Featured Artists</h1>
-        <span class="veiw_all"><a href="#">view more</a></span>
+        <h1>Ca sĩ nổi bật</h1>
+        <span class="veiw_all"><a href="#">Xem thêm</a></span>
     </div>
     <div class="ms_feature_slider swiper-container">
         <div class="swiper-wrapper">

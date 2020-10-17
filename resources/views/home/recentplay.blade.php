@@ -1,15 +1,16 @@
 <!---Recently Played Music--->
 <div class="ms_rcnt_slider">
     <div class="ms_heading">
-        <h1>Recently Played</h1>
-        <span class="veiw_all"><a href="#">view more</a></span>
+        <h1>Đã nghe gần đây</h1>
+        <span class="veiw_all"><a href="#">Xem thêm</a></span>
     </div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
+            @foreach($songs as $song)
             <div class="swiper-slide">
                 <div class="ms_rcnt_box">
                     <div class="ms_rcnt_box_img">
-                        <img src="MusicLayout/images/music/r_music1.jpg" alt="">
+                        <img src="{{$song->img_path}}" alt="">
                         <div class="ms_main_overlay">
                             <div class="ms_box_overlay"></div>
                             <div class="ms_more_icon">
@@ -28,12 +29,15 @@
                         </div>
                     </div>
                     <div class="ms_rcnt_box_text">
-                        <h3><a href="#">Dream Your Moments (Duet)</a></h3>
-                        <p>Ava Cornish & Brian Hill</p>
+                        <h3><a href="#">{{$song->name}}</a></h3>
+                        @foreach ($song->artists as $sa)
+                        <p>{{$sa->name}}</p>
+                        @endforeach
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide">
+            @endforeach
+            <!-- <div class="swiper-slide">
                 <div class="ms_rcnt_box">
                     <div class="ms_rcnt_box_img">
                         <img src="MusicLayout/images/music/r_music2.jpg" alt="">
@@ -275,7 +279,7 @@
                         <p>Ava Cornish & Brian Hill</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Add Arrows -->

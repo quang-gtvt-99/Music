@@ -8,7 +8,7 @@
                 </div>
             </div>
             @foreach($songs as $key=> $song)
-            <div class="col-lg-6 col-md-12 padding_right40">
+            <div class="col-lg-12 col-md-12 padding_right40">
                 <div class="ms_weekly_box">
                     <div class="weekly_left">
                         <span class="w_top_no">
