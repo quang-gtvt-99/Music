@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/search', [
+    'as' => 'home.search',
+    'uses' => 'App\Http\Controllers\HomeController@getSearch'
+]);
+
 // Route::get('/home', 'App\Http\Controllers\HomeController@index');
 
 Route::prefix('home')->group(function () {
@@ -24,7 +29,8 @@ Route::prefix('home')->group(function () {
         'as' => 'home.index',
         'uses' => 'App\Http\Controllers\HomeController@index'
     ]);
-    //gotoviewtheem
+    
+    
     
 });
 
@@ -41,6 +47,33 @@ Route::prefix('genres')->group(function () {
     Route::get('/', [
         'as' => 'genres.index',
         'uses' => 'App\Http\Controllers\GenresController@index'
+    ]);
+    //gotoviewtheem
+    
+});
+
+Route::prefix('topDL')->group(function () {
+    Route::get('/', [
+        'as' => 'topDL.index',
+        'uses' => 'App\Http\Controllers\TDownloadController@index'
+    ]);
+    //gotoviewtheem
+    
+});
+
+Route::prefix('album')->group(function () {
+    Route::get('/', [
+        'as' => 'album.index',
+        'uses' => 'App\Http\Controllers\AlbumController@index'
+    ]);
+    //gotoviewtheem
+    
+});
+
+Route::prefix('song')->group(function () {
+    Route::get('/', [
+        'as' => 'song.index',
+        'uses' => 'App\Http\Controllers\SongController@index'
     ]);
     //gotoviewtheem
     

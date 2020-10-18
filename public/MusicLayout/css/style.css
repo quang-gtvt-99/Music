@@ -6601,3 +6601,30 @@ h2.widget-title:after {
 		flex-basis: 190px;
 	}
 }
+
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 25px;
+    color: #d7e1eb;
+    background-color: #14182a;
+    border: 1px solid #dee2e6;
+    width: 20px;
+}
+.page-item{
+	text-align: center;
+}
+
+
+.pagination {
+	justify-content: flex-end;
+	margin-top: 5px;
+}
+
+.page-item.disabled .page-link{
+	background-color: #14192b;
+	color: white;
+}

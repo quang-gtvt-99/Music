@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSongAlbumTable extends Migration
+class CreateSongAlbumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSongAlbumTable extends Migration
      */
     public function up()
     {
-        Schema::create('song_album', function (Blueprint $table) {
+        Schema::create('song_albums', function (Blueprint $table) {
             $table->integer('id_album')->unsigned();
             $table->foreign('id_album')->references('id')->on('albums');
             $table->integer('id_song')->unsigned();
@@ -28,6 +28,6 @@ class CreateSongAlbumTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('song_album');
+        Schema::dropIfExists('song_albums');
     }
 }

@@ -10,9 +10,9 @@ use App\Models\SongAlbum;
 use App\Models\Album;
 use Illuminate\Http\Request;
 
-class AlbumController extends Controller
+class SongController extends Controller
 {
-    private  $song, $genres, $artist, $songArtist,$songAlbum,$album;
+    private  $song, $genres, $artist, $songArtist,$album,$songAlbum;
     public function __construct(Song $song, Genres $genres, Artist $artist, SongArtist $songArtist,Album $album,SongAlbum $songAlbum)
     {
 
@@ -25,7 +25,7 @@ class AlbumController extends Controller
     }
 
     public function index(){
-        $albumAll = $this->album->get();
-        return view('album.index',compact('albumAll'));
+        $songs = $this->song->paginate(10);
+        return view('song.index',compact('songs'));
     }
 }

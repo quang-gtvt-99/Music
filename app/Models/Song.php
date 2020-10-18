@@ -25,4 +25,9 @@ class Song extends Model
     public function genres(){
         return $this->belongsTo(Genres::class,'id_genres');
     }
+
+    public function albums(){
+        return $this
+        ->belongsToMany(Album::class,'song_albums','id_album','id_song');
+    }
 }

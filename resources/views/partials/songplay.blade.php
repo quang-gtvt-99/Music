@@ -9,7 +9,7 @@
                 <div class="player_left">
                     <div class="ms_play_song">  
                         <div class="play_song_name">
-                            <a href="javascript:void(0);" id="playlist-text">
+                            <a href="javascript:void(0)" id="playlist-text">
                                 <div class="jp-now-playing flex-item">  
                                     <div class="jp-track-name"></div>
                                     <div class="jp-artist-name"></div>
