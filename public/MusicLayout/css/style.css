@@ -717,6 +717,7 @@ span.nav_text {
 	border-radius: 0px 5px 5px 0px;
 	padding: 0px 16px;
 	cursor: pointer;
+	border: none;
 }
 .ms_top_search .form-control {
 	display: inline-block;
@@ -6627,4 +6628,10 @@ h2.widget-title:after {
 .page-item.disabled .page-link{
 	background-color: #14192b;
 	color: white;
+}
+.name{
+	width: 20% !important;
+}
+.stt{
+	width: 10% !important;
 }

@@ -406,7 +406,12 @@ Assigned to: Theme Forest
 		// Scrollbar
 		$(".ms_nav_wrapper").mCustomScrollbar({
 			theme:"minimal"
-		});
+        });
+
+        // $('.ms_nav_wrapper ul li a').click(function(){
+        //       $('.ms_nav_wrapper ul li a').removeClass('active');
+        //       $(this).addClass('active');
+        // });
 		
 		// Queue Scrollbar
 		$(".jp_queue_list_inner").mCustomScrollbar({

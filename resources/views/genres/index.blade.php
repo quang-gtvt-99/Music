@@ -6,7 +6,7 @@
 
 @section('content')
 
-
+<div class="ms_content_wrapper padder_top80">
 <div class="ms_genres_wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -41,5 +41,14 @@
         
     </div>
 </div>
+</div>
+@endsection
 
+@section('js')
+<script>
+    $(function() {
+        $('.ms_nav_wrapper ul li a').removeClass('active');
+        $('#tab4').addClass('active');
+    });
+</script>
 @endsection

@@ -39,7 +39,11 @@ Route::prefix('artist')->group(function () {
         'as' => 'artist.index',
         'uses' => 'App\Http\Controllers\ArtistController@index'
     ]);
-    //gotoviewtheem
+    
+    Route::get('/detail/{id}', [
+        'as' => 'artist.detail',
+        'uses' => 'App\Http\Controllers\ArtistController@details'
+    ]);
     
 });
 

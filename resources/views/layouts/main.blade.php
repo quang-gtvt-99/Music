@@ -20,6 +20,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('MusicLayout/css/style.css') }}">
     <!-- Favicon Link -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('MusicLayout/images/favicon.png') }}">
+
+    
+
 </head>
 
 <body>
@@ -32,11 +35,11 @@
     <!----Main Wrapper Start---->
     <div class="ms_main_wrapper">
         @include('partials.sidebar')
-        <div class="ms_content_wrapper padder_top80">
-            @include('partials.header')
-            @yield('content')
-        </div>
-         
+        <!-- <div class="ms_content_wrapper padder_top80"> -->
+        @include('partials.header')
+        @yield('content')
+        <!-- </div> -->
+
         @include('partials.footer')
 
         @include('partials.songplay')
@@ -277,16 +280,48 @@
         </div>
     </div>
     <!--Main js file Style-->
+
     <script type="text/javascript" src="{{ asset('MusicLayout/js/jquery.js') }}"></script>
+    @yield('js')
     <script type="text/javascript" src="{{ asset('MusicLayout/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/swiper/js/swiper.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/jplayer.playlist.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/jquery.jplayer.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/audio-player.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/audio-player.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/volume.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/nice_select/jquery.nice-select.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/scroll/jquery.mCustomScrollbar.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/custom.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+            
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function() {
+                    $(this).jPlayer("setMedia", {
+                        image: 'storage/artist/Sontungmtp.jpg',
+                        title: "Partir",
+                        artist: "The Living End",
+                        mp3: "storage/song/Am-Tham-Ben-Em-Son-Tung-M-TP.mp3",
+                    });
+
+                },
+                cssSelectorAncestor: "#jp_container_1",
+                swfPath: "MusicLayout/js/plugins",
+                supplied: "oga, mp3",
+                wmode: "window",
+                useStateClassSkin: true,
+                autoBlur: false,
+                smoothPlayBar: true,
+                keyEnabled: true,
+                playlistOptions: {
+                    autoPlay: true
+                }
+            });
+            $(".jp-now-playing").html("<div class='jp-track-name'><span class='que_img'><img src='"+image+"'></span><div class='que_data'>" + obj.title + " <div class='jp-artist-name'>" + obj.artist + "</div></div></div>");
+
+        });
+    </script>
+
 </body>
 
 </html>

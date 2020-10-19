@@ -2,7 +2,7 @@
 <div class="ms_header">
     <div class="ms_top_left">
         <div class="ms_top_search">
-            <form action="" method="get">
+            <form action="/search" method="get">
                 <input type="text" class="form-control" name="key" placeholder="Tìm kiếm">
                 <button type="submit" class="fa fa-search search_icon"></button>
                 <!-- <span class="search_icon" type="submit">

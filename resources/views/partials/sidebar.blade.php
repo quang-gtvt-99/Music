@@ -14,7 +14,7 @@
 		</div>
 		<div class="ms_nav_wrapper">
 			<ul>
-				<li><a href="{{ route('home.index') }}" class="active" title="Trang chủ">
+				<li><a href="{{ route('home.index') }}" class="active" id="tab1" title="Trang chủ">
 						<span class="nav_icon">
 							<span class="icon icon_discover"></span>
 						</span>
@@ -24,7 +24,7 @@
 					</a>
 				</li>
 
-				<li><a href="{{ route('album.index') }}" title="Albums">
+				<li><a href="{{ route('album.index') }}" id="tab2" title="Albums">
 						<span class="nav_icon">
 							<span class="icon icon_albums"></span>
 						</span>
@@ -34,7 +34,7 @@
 					</a>
 				</li>
 
-				<li><a href="{{ route('artist.index') }}" title="Ca sĩ">
+				<li><a href="{{ route('artist.index') }}" id="tab3" title="Ca sĩ">
 						<span class="nav_icon">
 							<span class="icon icon_artists"></span>
 						</span>
@@ -44,7 +44,7 @@
 					</a>
 				</li>
 
-				<li><a href="{{ route('genres.index') }}" title="Thể loại">
+				<li><a href="{{ route('genres.index') }}" id="tab4" title="Thể loại">
 						<span class="nav_icon">
 							<span class="icon icon_genres"></span>
 						</span>
@@ -54,7 +54,7 @@
 					</a>
 				</li>
 
-				<li><a href="{{ route('song.index') }}" title="Bài hát">
+				<li><a href="{{ route('song.index') }}" id="tab5" title="Bài hát">
 						<span class="nav_icon">
 							<span class="icon icon_tracks"></span>
 						</span>
@@ -64,7 +64,7 @@
 					</a>
 				</li>
 
-				<li><a href="{{ route('topDL.index') }}" title="Top download">
+				<li><a href="{{ route('topDL.index') }}" id="tab4" title="Top download">
 						<span class="nav_icon">
 							<span class="icon icon_music"></span>
 						</span>

@@ -10,19 +10,8 @@
 
 @section('content')
 
-<script type="text/javascript">
- $(document).ready(function(){
-  $("#jquery_jplayer_1").jPlayer({
-   ready: function () {
-    $(this).jPlayer("setMedia", {
-     mp3: "/storage/song/Am-Tham-Ben-Em-Son-Tung-M-TP.mp3",
-    });
-   },
-   swfPath: "/js",
-   supplied: "m4a, oga"
-  });
- });
-</script>
+
+<div class="ms_content_wrapper padder_top80">
 
 @include('home.banner')
 
@@ -31,7 +20,6 @@
 @include('home.top15')
 
 @include('home.artistFE')
-
 
 <!----Add Section Start---->
 <div class="ms_advr_wrapper">
@@ -48,6 +36,18 @@
 @include('home.album')
 
 @include('home.genres')
+</div>
 
 
+@endsection
+
+@section('js')
+<script>
+    $(function() {
+        var s='{{$songs}}';
+        console.log(s);
+        $('.ms_nav_wrapper ul li a').removeClass('active');
+        $('#tab1').addClass('active');
+    });
+</script>
 @endsection

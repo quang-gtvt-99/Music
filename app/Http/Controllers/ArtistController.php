@@ -25,4 +25,10 @@ class ArtistController extends Controller
         $artistAll = $this->artist->get();
         return view('artist.index',compact('artists','artistAll'));
     }
+
+    public function details($id){
+        $artist = $this->artist->find($id);
+        $artistAll = $this->artist->get();
+        return view('artist.detailArtist', compact('artist','artistAll'));
+    }
 }

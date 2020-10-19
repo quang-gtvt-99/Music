@@ -8,7 +8,6 @@ use App\Models\Artist;
 use App\Models\SongArtist;
 use App\Models\SongAlbum;
 use App\Models\Album;
-
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
