@@ -44,8 +44,6 @@
 @section('js')
 <script>
     $(function() {
-        var s='{{$songs}}';
-        console.log(s);
         $('.ms_nav_wrapper ul li a').removeClass('active');
         $('#tab1').addClass('active');
     });

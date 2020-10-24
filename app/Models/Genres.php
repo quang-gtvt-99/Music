@@ -13,4 +13,9 @@ class Genres extends Model
     protected $fillable = [
         'name', 'img_path'
     ];
+
+    public function songs()
+    {
+        return $this->hasMany(Song::class,'id_genres');
+    }
 }

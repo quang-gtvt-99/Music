@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <div class="w_tp_song_name">
-                                <h3><a href="#">{{$album->name}}</a></h3>
+                                <h3><a href="{{route('album.detail',['id'=>$album->id])}}">{{$album->name}}</a></h3>
                                 <p>Ava Cornish</p>
                             </div>
                         </div>

@@ -24,11 +24,10 @@
                                 </div>
                             </div>
                             <div class="w_tp_song_name">
-                                <h3><a href="#">{{$song->name}}</a></h3>
+                                <h3><a href="javascript:void(0)" class="song_play" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a></h3>
                                 @foreach ($song->artists as $sa)
                                 <p>{{$sa->name}}</p>
                                 @endforeach
-                                
                             </div>
                         </div>
                     </div>

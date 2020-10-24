@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="ms_rcnt_box_text">
-                        <h3><a href="artist_single.html">{{$artAll->name}}</a></h3>
+                        <h3><a href="{{route('artist.detail',['id'=>$artAll->id])}}">{{$artAll->name}}</a></h3>
                     </div>
                 </div>
             </div>

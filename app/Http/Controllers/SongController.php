@@ -28,4 +28,11 @@ class SongController extends Controller
         $songs = $this->song->paginate(10);
         return view('song.index',compact('songs'));
     }
+
+   public function details($id)
+   {
+    $song = $this->song->find($id);
+    $songAll = $this->song->get();
+    dd($songAll);
+   }
 }

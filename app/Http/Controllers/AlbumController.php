@@ -28,4 +28,10 @@ class AlbumController extends Controller
         $albumAll = $this->album->get();
         return view('album.index',compact('albumAll'));
     }
+
+    public function detailAlbum($id){
+        $album = $this->album->find($id);
+        $albumAll = $this->album->get();
+        return view('album.detailAlbum', compact('album','albumAll'));
+    }
 }

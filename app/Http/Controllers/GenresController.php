@@ -24,4 +24,11 @@ class GenresController extends Controller
         $genres = $this->genres->get();
         return view('genres.index',compact('genres'));
     }
+
+    public function detailGenres($id){
+        $genres = $this->genres->find($id);
+        $genresAll = $this->genres->get();
+        return view('genres.detailGenres', compact('genres','genresAll'));
+    }
+
 }

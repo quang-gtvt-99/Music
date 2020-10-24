@@ -30,6 +30,20 @@ Route::prefix('home')->group(function () {
         'uses' => 'App\Http\Controllers\HomeController@index'
     ]);
     
+    Route::get('/detail/{id}', [
+        'as' => 'song.detail',
+        'uses' => 'App\Http\Controllers\HomeController@details'
+    ]);
+
+    Route::post('/', [
+        'as' => 'signup',
+        'uses' => 'App\Http\Controllers\UserController@signup'
+    ]);
+    
+    Route::post('/', [
+        'as' => 'signin',
+        'uses' => 'App\Http\Controllers\UserController@signin'
+    ]);
     
     
 });
@@ -52,7 +66,11 @@ Route::prefix('genres')->group(function () {
         'as' => 'genres.index',
         'uses' => 'App\Http\Controllers\GenresController@index'
     ]);
-    //gotoviewtheem
+    
+    Route::get('/detail/{id}', [
+        'as' => 'genres.detail',
+        'uses' => 'App\Http\Controllers\GenresController@detailGenres'
+    ]);
     
 });
 
@@ -70,15 +88,35 @@ Route::prefix('album')->group(function () {
         'as' => 'album.index',
         'uses' => 'App\Http\Controllers\AlbumController@index'
     ]);
-    //gotoviewtheem
+
+    Route::get('/detail/{id}', [
+        'as' => 'album.detail',
+        'uses' => 'App\Http\Controllers\AlbumController@detailAlbum'
+    ]);
     
 });
+
+
+
 
 Route::prefix('song')->group(function () {
     Route::get('/', [
         'as' => 'song.index',
         'uses' => 'App\Http\Controllers\SongController@index'
     ]);
-    //gotoviewtheem
+    Route::get('/detail/{id}', [
+        'as' => 'song.detail',
+        'uses' => 'App\Http\Controllers\SongController@details'
+    ]);
     
 });
+
+Route::post('/', [
+    'as' => 'signup',
+    'uses' => 'App\Http\Controllers\UserController@signup'
+]);
+
+Route::post('/', [
+    'as' => 'signin',
+    'uses' => 'App\Http\Controllers\UserController@signin'
+]);
