@@ -35,16 +35,6 @@ Route::prefix('home')->group(function () {
         'uses' => 'App\Http\Controllers\HomeController@details'
     ]);
 
-    Route::post('/', [
-        'as' => 'signup',
-        'uses' => 'App\Http\Controllers\UserController@signup'
-    ]);
-    
-    Route::post('/', [
-        'as' => 'signin',
-        'uses' => 'App\Http\Controllers\UserController@signin'
-    ]);
-    
     
 });
 
@@ -108,15 +98,41 @@ Route::prefix('song')->group(function () {
         'as' => 'song.detail',
         'uses' => 'App\Http\Controllers\SongController@details'
     ]);
+
+    Route::get('/favourite/{id}', [
+        'as' => 'song.favourite',
+        'uses' => 'App\Http\Controllers\SongController@favourite'
+    ]);
+
+    Route::get('/showlist', [
+        'as' => 'song.showlist',
+        'uses' => 'App\Http\Controllers\SongController@showList'
+    ]);
+
+    Route::get('/deletelist', [
+        'as' => 'song.deletelist',
+        'uses' => 'App\Http\Controllers\SongController@deleteList'
+    ]);
+
     
 });
 
-Route::post('/', [
-    'as' => 'signup',
-    'uses' => 'App\Http\Controllers\UserController@signup'
-]);
+Route::group(['middleware' => ['web']], function () {
+    Route::post('/signup', [
+        'as' => 'signup',
+        'uses' => 'App\Http\Controllers\UserController@signup'
+    ]);
+});
 
-Route::post('/', [
+
+
+Route::post('/signin', [
     'as' => 'signin',
     'uses' => 'App\Http\Controllers\UserController@signin'
+]);
+
+
+Route::get('/logout', [
+    'as' => 'logout',
+    'uses' => 'App\Http\Controllers\UserController@logout'
 ]);

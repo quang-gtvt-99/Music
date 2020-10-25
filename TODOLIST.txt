@@ -1,0 +1,8 @@
+3.Xoá khỏi danh sách yêu thích
+4.Update thông tin cá nhân
+5.Click update lượt nghe, lượt download
+6.Fix bug Jplayer
+7.Đăng nhập bằng fb, google
+8.Sửa query get infor top bài hát...
+9.Đa ngôn ngữ
+10.download

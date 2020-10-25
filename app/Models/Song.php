@@ -30,4 +30,8 @@ class Song extends Model
         return $this
         ->belongsToMany(Album::class,'song_albums','id_album','id_song');
     }
+
+    public function favourites(){
+        return $this->belongsTo(Favourite::class,'id_song');
+    }
 }

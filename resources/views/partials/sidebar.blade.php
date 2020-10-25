@@ -105,12 +105,12 @@
 					</a>
 				</li>
 
-				<li><a href="favourite.html" title="Favourites">
+				<li><a href="{{route('song.showlist')}}" title="Yêu thích">
 						<span class="nav_icon">
 							<span class="icon icon_favourite"></span>
 						</span>
 						<span class="nav_text">
-							favourites
+							Yêu thích
 						</span>
 					</a>
 				</li>

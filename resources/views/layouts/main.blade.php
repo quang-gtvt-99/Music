@@ -46,111 +46,8 @@
     </div>
     <!-- Modal -->
     <div class="ms_register_popup">
-        <form action="{{route('signup')}}" method="post">
-            @csrf
-            <div id="myModal" class="modal  centered-modal" role="dialog">
-                <div class="modal-dialog register_dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <i class="fa_icon form_close"></i>
-                        </button>
-                        @if(Session::has('success'))
-                        <div class="alert alert-success">{{Session::get('success')}}</div>
-                        @endif
-                        <div class="modal-body">
-                            <div class="ms_register_img">
-                                <img src="{{asset('MusicLayout/images/register_img.png')}}" alt="" class="img-fluid" />
-                            </div>
-                            <div class="ms_register_form">
-                                <h2>Đăng kí / Đăng nhập</h2>
-                                <div class="form-group">
-                                    <input type="text" name="name" placeholder="Nhập tên của bạn" class="form-control">
-                                    <span class="form_icon">
-                                        <i class="fa_icon form-user" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="email" placeholder="Nhập email" class="form-control">
-                                    <span class="form_icon">
-                                        <i class="fa_icon form-envelope" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="password" placeholder="Nhập mật khẩu" class="form-control">
-                                    <span class="form_icon">
-                                        <i class="fa_icon form-lock" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="confirmpass" placeholder="Nhập lại mật khẩu" class="form-control">
-                                    <span class="form_icon">
-                                        <i class=" fa_icon form-lock" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-
-                                <button type="submit" class="ms_btn">
-                                    Đăng kí
-                                </button>
-                                <p>Bạn đã có tài khoản? <a href="#myModal1" data-toggle="modal" class="ms_modal hideCurrentModel">Đăng nhập</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <!----Login Popup Start---->
-        <div id="myModal1" class="modal  centered-modal" role="dialog">
-            <div class="modal-dialog login_dialog">
-                <form action="{{route('signin')}}" method="post">
-                    @csrf
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <i class="fa_icon form_close"></i>
-                        </button>
-                        @if(Session::has('message'))
-                        <div class="alert">{{Session::get('message')}}</div>
-                        @endif
-                        <div class="modal-body">
-                            <div class="ms_register_img">
-                                <img src="{{asset('MusicLayout/images/register_img.png')}}" alt="" class="img-fluid" />
-                            </div>
-                            <div class="ms_register_form">
-                                <h2>Đăng nhập</h2>
-                                <div class="form-group">
-                                    <input type="text" placeholder="Enter Your Email" name="email" class="form-control">
-                                    <span class="form_icon">
-                                        <i class="fa_icon form-envelope" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" placeholder="Enter Password" name="password" class="form-control">
-                                    <span class="form_icon">
-                                        <i class="fa_icon form-lock" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="remember_checkbox">
-                                    <label>Lưu thông tin
-                                        <input type="checkbox" name="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="save_modal_btn">
-                                    <button type="submit" class="ms_btn"> continue with google </button>
-                                    <button type="submit" class="ms_btn"> continue with facebook</button>
-                                </div>
-                                <button type="submit" class="ms_btn">Đăng nhập</button>
-                                <div class="popup_forgot">
-                                    <a href="#">Forgot Password ?</a>
-                                </div>
-                                <p>Don't Have An Account? <a href="#myModal" data-toggle="modal" class="ms_modal1 hideCurrentModel">register here</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        @include('partials.login')
+        @include('partials.register')
     </div>
     <!----Language Selection Modal---->
     <div class="ms_lang_popup">
@@ -268,31 +165,65 @@
     <div class="ms_save_modal">
         <div id="save_modal" class="modal  centered-modal" role="dialog">
             <div class="modal-dialog">
+                <form action="{{route('signin')}}" method="post">
+                    @csrf
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="fa_icon form_close"></i>
+                        </button>
+                        <div class="modal-body">
+                            <h1>Đăng nhập để tiếp tục!</h1>
+                            <div class="save_modal_btn">
+                                <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Đăng nhập bằng google </a>
+                                <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i> Đăng nhập bằng facebook</a>
+                            </div>
+                            <div class="ms_save_email">
+                                <h3>Hoặc bằng tài khoản của bạn</h3>
+                                <div class="save_input_group">
+                                    <input type="text" placeholder="Enter Your Name" name="email" class="form-control">
+                                </div>
+                                <div class="save_input_group">
+                                    <input type="password" placeholder="Enter Password" name="password" class="form-control">
+                                </div>
+                                <button type="submit">Đăng nhập</button>
+                            </div>
+                            <div class="ms_dnt_have">
+                                <p>Bạn chưa có tài khoản? <a href="#myModal" data-toggle="modal" class="ms_modal1 hideCurrentModel">Đăng kí</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="ms_clear_modal">
+        <div id="success_modal" class="modal  centered-modal" role="dialog">
+            <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal">
                         <i class="fa_icon form_close"></i>
                     </button>
                     <div class="modal-body">
-                        <h1>Log in to start sharing your music!</h1>
-                        <div class="save_modal_btn">
-                            <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i> continue with google </a>
-                            <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i> continue with facebook</a>
-                        </div>
-                        <div class="ms_save_email">
-                            <h3>or use your email</h3>
-                            <div class="save_input_group">
-                                <input type="text" placeholder="Enter Your Name" class="form-control">
-                            </div>
-                            <div class="save_input_group">
-                                <input type="password" placeholder="Enter Password" class="form-control">
-                            </div>
-                            <button class="save_btn">Log in</button>
-                        </div>
-                        <div class="ms_dnt_have">
-                            <span>Dont't have an account ?</span>
-                            <a href="javascript:;" class="hideCurrentModel" data-toggle="modal" data-target="#myModal">Register Now</a>
-                        </div>
+                        <h1>Thêm bài hát thành công</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ms_clear_modal">
+        <div id="error_modal" class="modal  centered-modal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fa_icon form_close"></i>
+                    </button>
+                    <div class="modal-body">
+                        <h1>Bài hát đã tồn tại trong danh sách</h1>
                     </div>
                 </div>
             </div>
@@ -311,30 +242,20 @@
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/nice_select/jquery.nice-select.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/scroll/jquery.mCustomScrollbar.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/custom.js') }}"></script>
-    <!-- <script type="text/javascript">
-        $(function() {
-            $("#jquery_jplayer_1").jPlayer({
-                ready: function() {
-                    $(this).jPlayer("setMedia", {
-                        title: "Partir",
-                        artist: "The Living End",
-                        mp3: "storage/song/Am-Tham-Ben-Em-Son-Tung-M-TP.mp3",
-                    });
+    <script type="text/javascript" src="{{ asset('MusicLayout/js/myJS.js') }}"></script>
+    
+    <!-- Check lỗi đăng kí -->
+    <script type="text/javascript">
+        @if(count($errors) > 0)
+        $('#myModal').modal('show');
+        @elseif(Session::has('success'))
+        alert('Đăng kí tài khoản thành công');
+        @endif
 
-                },
-                cssSelectorAncestor: "#jp_container_1",
-                swfPath: "MusicLayout/plugins/js",
-                supplied: "m4a, oga,mp3",
-                useStateClassSkin: true,
-                autoBlur: true,
-                smoothPlayBar: true,
-                keyEnabled: true,
-                remainingDuration: false,
-                toggleDuration: false
-            });
-        });
-    </script> -->
 
+    </script>
+    <!-- Thêm vào yêu thích -->
+    
 </body>
 
 </html>

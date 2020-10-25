@@ -94,6 +94,7 @@ function get_detail_song(id){
             });
             var updatebar = function(x) {
                 var progress = $('.jp-progress');
+                console.log(progress);
                 var position = x - progress.offset().left;
                 var percentage = 100 * position / progress.width();
                 if (percentage > 100) {
