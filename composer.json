@@ -14,7 +14,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laracasts/utilities": "^3.2",
         "laravel/framework": "^8.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "happyworm/jPlayer": "2.*"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
@@ -26,7 +27,8 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "component-dir": "your/desired/asset/path"
     },
     "extra": {
         "laravel": {

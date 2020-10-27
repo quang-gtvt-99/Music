@@ -86,6 +86,19 @@ Route::prefix('album')->group(function () {
     
 });
 
+Route::prefix('user')->group(function () {
+    Route::get('/', [
+        'as' => 'user.index',
+        'uses' => 'App\Http\Controllers\UserController@index'
+    ]);
+
+    Route::post('/update/{id}', [
+        'as' => 'user.update',
+        'uses' => 'App\Http\Controllers\UserController@update'
+    ]);
+    
+});
+
 
 
 
@@ -112,6 +125,11 @@ Route::prefix('song')->group(function () {
     Route::get('/deletelist', [
         'as' => 'song.deletelist',
         'uses' => 'App\Http\Controllers\SongController@deleteList'
+    ]);
+
+    Route::post('/update/{id}', [
+        'as' => 'song.update',
+        'uses' => 'App\Http\Controllers\SongController@update'
     ]);
 
     

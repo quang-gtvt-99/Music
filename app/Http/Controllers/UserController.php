@@ -7,9 +7,17 @@ use Illuminate\Http\Request;
 use PharIo\Manifest\Email;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+
+    private  $user;
+    public function __construct( User $user)
+    {
+        $this->user = $user;
+    }
+
     public function signup(Request $request){
         $this->validate($request,[
             'email'=>'required|email|unique:users,email',
@@ -56,5 +64,22 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect('home');
+    }
+
+    public function index()
+    {
+        $user=Auth::user();
+        return view('home.user',compact('user'));
+    }
+
+    public function update($id,Request $request){
+        $fileName=$request->img_path->getClientOriginalName();
+        $this->user->find($id)->update([
+            'name' =>$request->name,
+            'email' =>$request->email,
+            'password' =>$request->password,
+            'img_path'=>Storage::url($request->file('img_path')->storeAs('public/user',$fileName)),
+        ]);
+        return redirect()->action('App\Http\Controllers\UserController@index');
     }
 }

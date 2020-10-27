@@ -14,9 +14,9 @@
                         <div class="footer_box footer_app">
                             <h1 class="footer_title">Tải ứng dụng</h1>
                             <p>Dùng điện thoại của bạn<br> Nghe bài hát yêu thích. Tải ngay !</p>
-                            <a href="#" class="foo_app_btn"><img src="MusicLayout/images/google_play.jpg" alt="" class="img-fluid"></a>
-                            <a href="#" class="foo_app_btn"><img src="MusicLayout/images/app_store.jpg" alt="" class="img-fluid"></a>
-                            <a href="#" class="foo_app_btn"><img src="MusicLayout/images/windows.jpg" alt="" class="img-fluid"></a>
+                            <a href="#" class="foo_app_btn"><img src="{{asset('MusicLayout/images/google_play.jpg')}}" alt="" class="img-fluid"></a>
+                            <a href="#" class="foo_app_btn"><img src="{{asset('MusicLayout/images/app_store.jpg')}}" alt="" class="img-fluid"></a>
+                            <a href="#" class="foo_app_btn"><img src="{{asset('MusicLayout/images/windows.jpg')}}" alt="" class="img-fluid"></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -42,7 +42,7 @@
                             <ul class="foo_con_info">
                                 <li>
                                     <div class="foo_con_icon">
-                                        <img src="MusicLayout/images/svg/phone.svg" alt="">
+                                        <img src="{{asset('MusicLayout/images/svg/phone.svg')}}" alt="">
                                     </div>
                                     <div class="foo_con_data">
                                         <span class="con-title">Gọi ngay :</span>
@@ -51,7 +51,7 @@
                                 </li>
                                 <li>
                                     <div class="foo_con_icon">
-                                        <img src="MusicLayout/images/svg/message.svg" alt="">
+                                        <img src="{{asset('MusicLayout/images/svg/message.svg')}}" alt="">
                                     </div>
                                     <div class="foo_con_data">
                                         <span class="con-title">Email :</span>
@@ -60,7 +60,7 @@
                                 </li>
                                 <li>
                                     <div class="foo_con_icon">
-                                        <img src="MusicLayout/images/svg/add.svg" alt="">
+                                        <img src="{{asset('MusicLayout/images/svg/add.svg')}}" alt="">
                                     </div>
                                     <div class="foo_con_data">
                                         <span class="con-title">Địa chỉ :</span>

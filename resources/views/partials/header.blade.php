@@ -21,10 +21,10 @@
         <div class="ms_top_btn">
             @if(Auth::check())
             <a href="upload.html" class="ms_btn">upload</a>
-            <a href="javascript:;" class="ms_admin_name">Xin chào {{Auth::user()->name}} <span class="ms_pro_name">ns</span>
+            <a href="javascript:;" class="ms_admin_name">Chào {{Auth::user()->name}} <span class="ms_pro_name">ns</span>
             </a>
             <ul class="pro_dropdown_menu">
-                <li><a href="profile.html">Trang cá nhân</a></li>
+                <li><a href="{{route('user.index')}}">Trang cá nhân</a></li>
                 <li><a href="blog.html" target="_blank">Blog</a></li>
                 <li><a href="#">Cài đặt</a></li>
                 <li><a href="{{route('logout')}}">Đăng xuất</a></li>

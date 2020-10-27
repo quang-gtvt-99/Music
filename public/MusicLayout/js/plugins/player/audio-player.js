@@ -7,27 +7,28 @@ function get_detail_song(id){
         playList.push({
             image : obj.img_path,	
             title: obj.name,
+            free: true,
             artist: "Mushroom Records",
             mp3: obj.song_path,
             option : myPlayListOtion
         });
-
-    console.log(playList.length);
 
     if (playList.length) {
         var myPlaylist = new jPlayerPlaylist({
             jPlayer: "#jquery_jplayer_1",
             cssSelectorAncestor: "#jp_container_1"
         },playList, {
-            swfPath: "js/plugins",
-            supplied: "oga, mp3",
+            swfPath: "/MusicLayout/js/plugins/player",
+            supplied: "mp3",
+            solution:"flash, html",
             wmode: "window",
             useStateClassSkin: true,
-            autoBlur: false,
+            autoBlur: true,
             smoothPlayBar: true,
+            toggleDuration:true,
             keyEnabled: true,
             playlistOptions: {
-                autoPlay: true
+                autoPlay: true,
             }
         });
         console.log(myPlaylist);
@@ -78,6 +79,7 @@ function get_detail_song(id){
             var timeDrag = false;
             $('.jp-play-bar').mousedown(function(e) {
                 timeDrag = true;
+                console.log('Test:'+timeDrag);
                 updatebar(e.pageX);
 				
             });
@@ -94,8 +96,9 @@ function get_detail_song(id){
             });
             var updatebar = function(x) {
                 var progress = $('.jp-progress');
-                console.log(progress);
                 var position = x - progress.offset().left;
+                console.log(position);
+                console.log(progress.width());
                 var percentage = 100 * position / progress.width();
                 if (percentage > 100) {
                     percentage = 100;
@@ -124,7 +127,6 @@ function get_detail_song(id){
         });
     }
     })
-    console.log(playList);
 };
 
     

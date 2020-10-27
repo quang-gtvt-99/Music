@@ -3595,8 +3595,11 @@ button.save_btn:hover {
 }
 .ms_pro_img {
 	position: relative;
-	display: inline-block;
+	display: flex;
 	cursor: pointer;
+	flex-direction: column;
+	justify-content: flex-end;
+    align-items: center;
 }
 .ms_pro_img img {
 	width: 155px;

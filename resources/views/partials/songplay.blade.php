@@ -20,20 +20,20 @@
                     </div>
                     <div class="play_song_options">
                         <ul>
-                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_download"></i></span>download now</a></li>
-                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_fav"></i></span>Add To Favourites</a></li>
-                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_playlist"></i></span>Add To Playlist</a></li>
-                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_share"></i></span>Share</a></li>
+                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_download"></i></span>Tải xuống</a></li>
+                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_fav"></i></span>Thêm vào danh sách</a></li>
+                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_playlist"></i></span>Thêm vao Playlist</a></li>
+                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_share"></i></span>Chia sẻ</a></li>
                         </ul>
                     </div>
                     <span class="play-left-arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <!----Right Queue---->
                 <div class="jp_queue_wrapper">
-                    <span class="que_text" id="myPlaylistQueue"><i class="fa fa-angle-up" aria-hidden="true"></i> queue</span>
+                    <span class="que_text" id="myPlaylistQueue"><i class="fa fa-angle-up" aria-hidden="true"></i> Đang phát</span>
                     <div id="playlist-wrap" class="jp-playlist">
                         <div class="jp_queue_cls"><i class="fa fa-times" aria-hidden="true"></i></div>
-                        <h2>queue</h2>
+                        <h2>Đang phát</h2>
                         <div class="jp_queue_list_inner">
                             <ul>
                                 <li>&nbsp;</li>
@@ -80,7 +80,7 @@
                                             <div class="knob d3"><span></span></div>
                                             <div class="handle"></div>
                                             <div class="round">
-                                                <img src="MusicLayout/images/svg/volume.svg" alt="">
+                                                <img src="{{asset('MusicLayout/images/svg/volume.svg')}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="jp_quality_optn custom_select">
                             <select>
-                                <option>quality</option>
+                                <option>Chất lượng</option>
                                 <option value="1">HD</option>
                                 <option value="2">High</option>
                                 <option value="3">medium</option>
