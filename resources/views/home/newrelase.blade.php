@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="w_tp_song_name">
-                            <h3><a href="javascript:void(0)" class="song_play" onClick="get_detail_song({{$sL->id}})">{{$sL->name}}</a></h3>
+                            <h3><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$sL->id])}}" class="song_play" onClick="get_detail_song({{$sL->id}})">{{$sL->name}}</a></h3>
                             @foreach ($sL->artists as $art)
                             <p>{{$art->name}}</p>
                             @endforeach

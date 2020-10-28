@@ -49,16 +49,16 @@
 
     <script type="text/javascript" src="{{ asset('MusicLayout/js/jquery.js') }}"></script>
     @yield('js')
+    <script type="text/javascript" src="{{ asset('MusicLayout/js/myJS.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/swiper/js/swiper.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/jplayer.playlist.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/jquery.jplayer.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/jquery.jplayer.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/audio-player.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/player/volume.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/nice_select/jquery.nice-select.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/plugins/scroll/jquery.mCustomScrollbar.js') }}"></script>
     <script type="text/javascript" src="{{ asset('MusicLayout/js/custom.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('MusicLayout/js/myJS.js') }}"></script>
 
     <!-- Check lỗi đăng kí -->
     <script type="text/javascript">

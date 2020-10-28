@@ -18,19 +18,18 @@
                 {{$artist->des}}
             </div>
             <div class="album_btn">
-                <a href="#" class="ms_btn play_btn"><span class="play_all"><img src="images/svg/play_all.svg" alt="">Nghe tất cả</span><span class="pause_all"><img src="images/svg/pause_all.svg" alt="">Pause</span></a>
-                <a href="#" class="ms_btn"><span class="play_all"><img src="images/svg/add_q.svg" alt="">Thêm vào sau</span></a>
+                <a href="#" class="ms_btn play_btn"><span class="play_all"><img src="{{asset('MusicLayout/images/svg/play_all.svg')}}" alt="">Nghe tất cả</span><span class="pause_all"><img src="images/svg/pause_all.svg" alt="">Pause</span></a>
+                <a href="#" class="ms_btn"><span class="play_all"><img src="{{asset('MusicLayout/images/svg/add_q.svg')}}" alt="">Thêm vào sau</span></a>
             </div>
         </div>
         <div class="album_more_optn ms_more_icon">
-            <span><img src="images/svg/more.svg" alt=""></span>
+            <span><img src="{{asset('MusicLayout/images/svg/more.svg')}}" alt=""></span>
         </div>
         <ul class="more_option">
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
+            <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào danh sách </a></li>
+            <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a></li>
+            <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
+            <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
         </ul>
     </div>
     <!----Song List---->
@@ -47,7 +46,7 @@
             @foreach($artist->songs as $key=> $song)
             <ul>
                 <li class="stt"><a href="#"><span class="play_no">{{$key+1}}</span><span class="play_hover"></span></a></li>
-                <li><a href="#">{{$song->name}}</a></li>
+                <li><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a></li>
                 <li class="text-center name">
                     @foreach($song->artists as $art)
                     <a href="#">{{$art->name}} </a>
@@ -57,18 +56,24 @@
                 <li class="text-center"><a href="#"><span class="ms_icon1 ms_fav_icon"></span></a></li>
                 <li class="text-center ms_more_icon"><a href="javascript:;"><span class="ms_icon1 ms_active_icon"></span></a>
                     <ul class="more_option">
-                        <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                        <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                        <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                        <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                        <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
+                        @if(Auth::check())
+                        <li><a href="#" data-url="{{route('song.favourite',['id'=>$song->id])}}" class="add_favourite" data-toggle="modal"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào thư viện</a></li>
+                        <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a></li>
+                        <li><a href="#" onClick="get_detail_song({{$song->id}})"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
+                        <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
+                        @else
+                        <li><a href="#save_modal" data-toggle="modal"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào thư viện</a></li>
+                        <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a></li>
+                        <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
+                        <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
+                        @endif
                     </ul>
                 </li>
             </ul>
             @endforeach
         </div>
     </div>
-    
+
 </div>
 
 <!---Main Content Start--->

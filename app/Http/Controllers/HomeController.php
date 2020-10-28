@@ -27,7 +27,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $songs = $this->song->take(15)->get();
+        $songs = $this->song->orderBy('number_listen', 'desc')->take(15)->get();
         $songRelase = $this->song->latest()->limit(5)->get();
         $artists = $this->artist->take(6)->get();
         $genres = $this->genres->get();
@@ -45,6 +45,8 @@ class HomeController extends Controller
     {
         $song = $this->song->find($id);
         $songAll = $this->song->get();
+        $art=$song->artists;
         echo($song);
+       //echo($art);
     }
 }

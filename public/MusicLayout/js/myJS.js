@@ -50,8 +50,9 @@ function updateSong(e){
         }
     });
     let url=$(this).data('url');
+    console.log(url);
     $.ajax({
-        type: 'POST',
+        type: 'Post',
         url: url,
         dataType:'json',
         success: function(data) {
@@ -64,9 +65,36 @@ function updateSong(e){
     })
 }
 
+function get_song(id){
+    $.get('/home/detail/' + id, function(data){
+        console.log(id+':'+ data);
+        console.log(data);
+        var obj = JSON.parse(data);
+
+        // $("#jquery_jplayer_1").jPlayer({
+        //     ready: function () {
+        //       $(this).jPlayer("setMedia", {
+        //         image : obj.img_path,	
+        //         title: obj.name,
+        //         artist: "Unknown",
+        //         mp3: obj.song_path,
+        //       });
+        //     },
+        //     cssSelectorAncestor: "#jp_container_1",
+        //     swfPath: "/js",
+        //     supplied: "mp3",
+        //     useStateClassSkin: true,
+        //     autoBlur: false,
+        //     smoothPlayBar: true,
+        //     keyEnabled: true,
+        //     remainingDuration: true,
+        //     toggleDuration: true
+        //   });
+        
+})}
+
 $(function(){
     $('.add_favourite').on('click',addFavourite);
     $('.song_delete').on('click', deleteFavourite);
     $('.song_play').on('click', updateSong);
-
 });

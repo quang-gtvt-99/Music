@@ -16,7 +16,7 @@
     </div>
     <div class="ms_top_right">
         <div class="ms_top_lang">
-            <span data-toggle="modal" data-target="#lang_modal">Ngôn ngữ <img src="MusicLayout/images/svg/lang.svg" alt=""></span>
+            <span data-toggle="modal" data-target="#lang_modal">Ngôn ngữ <img src="{{asset('MusicLayout/images/svg/lang.svg')}}" alt=""></span>
         </div>
         <div class="ms_top_btn">
             @if(Auth::check())

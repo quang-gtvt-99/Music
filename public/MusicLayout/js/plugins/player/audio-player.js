@@ -2,13 +2,16 @@ var myPlayListOtion = '<ul class="more_option"><li><a href="#"><span class="opt_
 var playList=[];
 function get_detail_song(id){
     $.get('/home/detail/' + id, function(data){
-        console.log(id+':'+ data);
-        var obj = JSON.parse(data);
+        var obj = JSON.parse(data)
+        let art=[];
+        for(let i=0;i<obj.artists.length;i++){
+            art.push(obj.artists[i].name)
+        };
+        console.log(art.join(' & '));
         playList.push({
             image : obj.img_path,	
             title: obj.name,
-            free: true,
-            artist: "Mushroom Records",
+            artist: art.join(' & '),
             mp3: obj.song_path,
             option : myPlayListOtion
         });
@@ -28,10 +31,14 @@ function get_detail_song(id){
             toggleDuration:true,
             keyEnabled: true,
             playlistOptions: {
-                autoPlay: true,
+                autoPlay: true, 
             }
         });
         console.log(myPlaylist);
+        // var lib = {
+        //     jQuery: jQuery.noConflict(true)
+        //  }
+        //  $('#jp').jPlayer({noConflict: 'lib.jQuery'});
         $("#jquery_jplayer_1").on($.jPlayer.event.ready + ' ' + $.jPlayer.event.play, function(event) {
             var current = myPlaylist.current;
             var playlist = myPlaylist.playlist;
