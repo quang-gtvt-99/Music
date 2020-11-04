@@ -32,6 +32,9 @@ function get_detail_song(id){
             keyEnabled: true,
             playlistOptions: {
                 autoPlay: true, 
+                removeItemClass: "jp-playlist-item-remove"
+                //xoá bài hát khỏi list:
+               // enableRemoveControls:true
             }
         });
         console.log(myPlaylist);

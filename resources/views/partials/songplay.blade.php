@@ -30,7 +30,7 @@
                 </div>
                 <!----Right Queue---->
                 <div class="jp_queue_wrapper">
-                    <span class="que_text" id="myPlaylistQueue"><i class="fa fa-angle-up" aria-hidden="true"></i> Đang phát</span>
+                    <span class="que_text" id="myPlaylistQueue"><i class="fa fa-angle-up" aria-hidden="true"></i> Danh sách</span>
                     <div id="playlist-wrap" class="jp-playlist">
                         <div class="jp_queue_cls"><i class="fa fa-times" aria-hidden="true"></i></div>
                         <h2>Đang phát</h2>
