@@ -9,6 +9,7 @@ use App\Models\SongArtist;
 use App\Models\SongAlbum;
 use App\Models\Album;
 use App\Models\Favourite;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 
 class SongController extends Controller
@@ -146,5 +147,13 @@ class SongController extends Controller
             print fread($fm, min(1024 * 16, ($end - $cur) + 1));
             $cur += 1024 * 16;
         }
+    }
+
+    public function getDownload(File $file)
+    {
+        $tempImage = tempnam(sys_get_temp_dir(), $file);
+        copy('http://localhost:8000'. $file, $tempImage);
+
+        return response()->download($tempImage, $file);
     }
 }

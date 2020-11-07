@@ -1,7 +1,7 @@
 <!---Recently Played Music--->
 <div class="ms_rcnt_slider">
     <div class="ms_heading">
-        <h1>Đã nghe gần đây</h1>
+        <h1>Gợi ý</h1>
         <span class="veiw_all"><a href="#">Xem thêm</a></span>
     </div>
     <div class="swiper-container">
@@ -17,14 +17,23 @@
                                 <img src="MusicLayout/images/svg/more.svg" alt="">
                             </div>
                             <ul class="more_option">
-                                <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Add To Favourites</a></li>
-                                <li><a href="#"><span class="opt_icon"><span class="icon icon_queue"></span></span>Add To Queue</a></li>
-                                <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Download Now</a></li>
-                                <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Add To Playlist</a></li>
-                                <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Share</a></li>
+                                @if(Auth::check())
+                                <li><a href="#" data-url="{{route('song.favourite',['id'=>$song->id])}}" class="add_favourite" data-toggle="modal"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào thư viện</a></li>
+                                <li>
+                                    <a href="{{route('download',['file'=>$song->song_path])}}" download="{{$song->song_path}}">
+                                        <span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a>
+                                </li>
+                                <li><a href="#" onClick="get_detail_song({{$song->id}})"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
+                                <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000{{$song->song_path}}"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
+                                @else
+                                <li><a href="#save_modal" data-toggle="modal"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào thư viện</a></li>
+                                <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a></li>
+                                <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
+                                <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000{{$song->song_path}}"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
+                                @endif
                             </ul>
                             <div class="ms_play_icon">
-                                <img src="MusicLayout/images/svg/play.svg" alt="">
+                                <img src="{{asset('MusicLayout/images/svg/play.svg')}}" class="song_play" onClick="get_detail_song({{$song->id}})" alt="">
                             </div>
                         </div>
                     </div>

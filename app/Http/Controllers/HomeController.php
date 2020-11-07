@@ -29,10 +29,11 @@ class HomeController extends Controller
     {
         $songs = $this->song->orderBy('number_listen', 'desc')->take(15)->get();
         $songRelase = $this->song->latest()->limit(5)->get();
-        $artists = $this->artist->take(6)->get();
+        $artists = $this->artist->orderBy('number_visit', 'desc')->take(6)->get();
         $genres = $this->genres->get();
-        $albums = $this->album->take(5)->get();
-        return view('home', compact('songs', 'artists', 'songRelase', 'genres', 'albums'));
+        $albums = $this->album->orderBy('number_visit', 'desc')->take(5)->get();
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('home', compact('songs', 'artists', 'songRelase', 'genres', 'albums','songT1'));
     }
 
     public function getSearch(Request $request)

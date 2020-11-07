@@ -22,22 +22,7 @@
                 <a href="#" class="ms_btn"><span class="play_all"><img src="{{asset('MusicLayout/images/svg/add_q.svg')}}" alt="">Thêm sau</span></a>
             </div>
         </div>
-        <div class="album_more_optn ms_more_icon">
-            <span><img src="{{asset('MusicLayout/images/svg/more.svg')}}" alt=""></span>
-        </div>
-        <ul class="more_option">
-            @if(Auth::check())
-            <li><a href="#" data-url="{{route('song.favourite',['id'=>$song->id])}}" class="add_favourite" data-toggle="modal"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào thư viện</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a></li>
-            <li><a href="#" onClick="get_detail_song({{$song->id}})"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
-            @else
-            <li><a href="#save_modal" data-toggle="modal"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào thư viện</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
-            @endif
-        </ul>
+        
     </div>
     <!----Song List---->
     <div class="album_inner_list">
@@ -52,7 +37,7 @@
             </ul>
             @foreach($album->songs as $key=> $song)
             <ul>
-                <li class="stt"><a href="#"><span class="play_no">{{$key+1}}</span><span class="play_hover"></span></a></li>
+                <li class="stt"><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play" onClick="get_detail_song({{$song->id}})"><span class="play_no">{{$key+1}}</span><span class="play_hover"></span></a></li>
                 <li><a href="#">{{$song->name}}</a></li>
                 <li class="text-center name">
                     @foreach($song->artists as $art)

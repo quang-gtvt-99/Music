@@ -44,13 +44,14 @@ function deleteFavourite(e) {
 //update luowtj nghe
 function updateSong(e){
     e.preventDefault();
+    $('.action.que_close').addClass('jp-playlist-item-remove');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
     let url=$(this).data('url');
-    console.log(url);
+    // console.log(url);
     $.ajax({
         type: 'Post',
         url: url,
@@ -93,12 +94,33 @@ function get_song(id){
         
 })}
 
-//chatfb
-
+function removeList(){
+    var b=this;
+   $("#jquery_jplayer_1").jPlayer({
+            ready: function () {
+              $(this).jPlayer("setMedia", {
+                image : '',	
+                title: '',
+                artist: '',
+                mp3: '',
+              });
+            },
+            cssSelectorAncestor: "#jp_container_1",
+            swfPath: "/js",
+            supplied: "mp3",
+            useStateClassSkin: true,
+            autoBlur: false,
+            smoothPlayBar: true,
+            keyEnabled: true,
+            remainingDuration: true,
+            toggleDuration: true
+          });
+}
 
 
 $(function(){
     $('.add_favourite').on('click',addFavourite);
     $('.song_delete').on('click', deleteFavourite);
     $('.song_play').on('click', updateSong);
+    $('.ms_clear').on('click',removeList);
 });

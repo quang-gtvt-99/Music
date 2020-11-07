@@ -402,7 +402,8 @@ Assigned to: Theme Forest
     };
     $(document).ready(function() {
         music.init();
-		
+
+        
 		// Scrollbar
 		$(".ms_nav_wrapper").mCustomScrollbar({
 			theme:"minimal"

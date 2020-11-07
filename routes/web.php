@@ -157,3 +157,8 @@ Route::get('/logout', [
 
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
+
+Route::get('{file}', [
+    'as' => 'download',
+    'uses' => 'App\Http\Controllers\SongController@getDownload'
+]);

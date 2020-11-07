@@ -74,7 +74,17 @@
 					</a>
 				</li>
 
-				<li><a href="stations.html" title="Stations">
+				<li><a href="{{route('song.showlist')}}" title="Yêu thích">
+						<span class="nav_icon">
+							<span class="icon icon_favourite"></span>
+						</span>
+						<span class="nav_text">
+							Yêu thích
+						</span>
+					</a>
+				</li>
+
+				<!-- <li><a href="stations.html" title="Stations">
 						<span class="nav_icon">
 							<span class="icon icon_station"></span>
 						</span>
@@ -82,9 +92,9 @@
 							stations
 						</span>
 					</a>
-				</li>
+				</li> -->
 			</ul>
-			<ul class="nav_downloads">
+			<!-- <ul class="nav_downloads">
 				<li><a href="download.html" title="Downloads">
 						<span class="nav_icon">
 							<span class="icon icon_download"></span>
@@ -124,8 +134,8 @@
 						</span>
 					</a>
 				</li>
-			</ul>
-			<ul class="nav_playlist">
+			</ul> -->
+			<!-- <ul class="nav_playlist">
 				<li><a href="feature_playlist.html" title="Featured Playlist">
 						<span class="nav_icon">
 							<span class="icon icon_fe_playlist"></span>
@@ -145,7 +155,7 @@
 						</span>
 					</a>
 				</li>
-			</ul>
+			</ul> -->
 		</div>
 	</div>
 </div>

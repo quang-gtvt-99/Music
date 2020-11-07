@@ -7,6 +7,7 @@
 7.Đăng nhập bằng fb, google
 8.Sửa query get infor top bài hát...
 9.Đa ngôn ngữ
-10.download
+10.download(-done)
 11.SET ALL ROUTE
 12.loading
+13.elasticsearch

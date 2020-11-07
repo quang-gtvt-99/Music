@@ -11,7 +11,21 @@
             </form>
         </div>
         <div class="ms_top_trend">
-            <span><a href="#" class="ms_color">Ca khúc HOT :</a></span> <span class="top_marquee"><a href="#">Dream your moments, Until I Met You, Gimme Some Courage, Dark Alley (+8 More)</a></span>
+            <span>
+                <a href="#" class="ms_color">Ca khúc HOT :</a>
+            </span>
+             <span class="top_marquee">
+                 @foreach($songT1 as $key=> $song)
+                 
+                @if($key==1)
+                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}"
+                                class="song_play" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a>
+                @else
+                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}"
+                                class="song_play" onClick="get_detail_song({{$song->id}})">{{$song->name}},</a>
+                @endif
+                 @endforeach
+            </span>
         </div>
     </div>
     <div class="ms_top_right">

@@ -5,10 +5,11 @@
 @endsection
 
 @section('content')
+<div class="ms_content_wrapper padder_top90">
     @include('downloadTop.topSong')
 
     @include('downloadTop.topAlbum')
-
+</div>
 @endsection
 @section('js')
 <script>
