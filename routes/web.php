@@ -35,6 +35,10 @@ Route::prefix('home')->group(function () {
         'uses' => 'App\Http\Controllers\HomeController@details'
     ]);
 
+    Route::get('/song', [
+        'as' => 'home.song',
+        'uses' => 'App\Http\Controllers\HomeController@song'
+    ]);
     
 });
 
@@ -132,6 +136,11 @@ Route::prefix('song')->group(function () {
         'uses' => 'App\Http\Controllers\SongController@update'
     ]);
 
+    Route::post('/updateD/{id}', [
+        'as' => 'song.updateD',
+        'uses' => 'App\Http\Controllers\SongController@updateD'
+    ]);
+
     
 });
 
@@ -155,8 +164,20 @@ Route::get('/logout', [
     'uses' => 'App\Http\Controllers\UserController@logout'
 ]);
 
-Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
-Route::get('/callback/{provider}', 'SocialController@callback');
+
+Route::get('/language/{language}', [
+    'as' => 'language',
+    'uses' => 'App\Http\Controllers\LanguageController@index'
+]);
+
+Route::get('/auth/redirect/{provider}', [
+    'as' => 'loginfb',
+    'uses' => 'App\Http\Controllers\UserController@redirect'
+]);
+Route::get('/callback/{provider}', [
+    'as' => 'callbackfb',
+    'uses' => 'App\Http\Controllers\UserController@callback'
+]);
 
 Route::get('{file}', [
     'as' => 'download',

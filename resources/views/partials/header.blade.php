@@ -5,9 +5,6 @@
             <form action="/search" method="get">
                 <input type="text" class="form-control" name="key" placeholder="Tìm kiếm">
                 <button type="submit" class="fa fa-search search_icon"></button>
-                <!-- <span class="search_icon" type="submit">
-                    <img src="{{asset('MusicLayout/images/svg/search.svg')}}" alt="">
-                </span> -->
             </form>
         </div>
         <div class="ms_top_trend">
@@ -35,11 +32,10 @@
         <div class="ms_top_btn">
             @if(Auth::check())
             <a href="upload.html" class="ms_btn">upload</a>
-            <a href="javascript:;" class="ms_admin_name">Chào {{Auth::user()->name}} <span class="ms_pro_name">ns</span>
+            <a href="javascript:;" class="ms_admin_name"><span class="ms_admin_title">Chào {{Auth::user()->name}}</span> <span class="ms_pro_name" style="background-image:url('{{Auth::user()->img_path}}') !important;background-repeat: no-repeat, repeat;background-size: cover"></span>
             </a>
             <ul class="pro_dropdown_menu">
                 <li><a href="{{route('user.index')}}">Trang cá nhân</a></li>
-                <li><a href="blog.html" target="_blank">Blog</a></li>
                 <li><a href="#">Cài đặt</a></li>
                 <li><a href="{{route('logout')}}">Đăng xuất</a></li>
             </ul>

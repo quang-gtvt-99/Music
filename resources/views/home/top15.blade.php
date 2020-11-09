@@ -25,7 +25,7 @@
                             </div>
                             <div class="w_tp_song_name">
                                 <h3><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}"
-                                class="song_play" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a></h3>
+                                class="song_play set" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a></h3>
                                 @foreach ($song->artists as $sa)
                                 <p>{{$sa->name}}</p>
                                 @endforeach
@@ -42,10 +42,11 @@
                         @if(Auth::check())
                         <li><a href="#" data-url="{{route('song.favourite',['id'=>$song->id])}}" class="add_favourite" data-toggle="modal"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào thư viện</a></li>
                         <li>
-                            <a href="{{route('download',['file'=>$song->song_path])}}" download="{{$song->song_path}}">
+                            <a href="{{route('download',['file'=>$song->song_path])}}" class="download" download="{{$song->song_path}}" data-url="{{route('song.updateD',['id'=>$song->id])}}">
                                 <span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a>
                         </li>
-                        <li><a href="#" onClick="get_detail_song({{$song->id}})"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
+                        <li><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}"
+                                class="song_play" onClick="get_detail_song({{$song->id}})"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
                         <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000{{$song->song_path}}"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
                         @else
                         <li><a href="#save_modal" data-toggle="modal"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào thư viện</a></li>

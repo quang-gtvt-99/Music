@@ -22,7 +22,6 @@
                         <ul>
                             <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_download"></i></span>Tải xuống</a></li>
                             <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_fav"></i></span>Thêm vào danh sách</a></li>
-                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_playlist"></i></span>Thêm vao Playlist</a></li>
                             <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_share"></i></span>Chia sẻ</a></li>
                         </ul>
                     </div>
@@ -40,8 +39,8 @@
                             </ul>
                         </div>
                         <div class="jp_queue_btn">
-                            <a href="javascript:;" class="ms_clear" data-toggle="modal" data-target="#clear_modal">clear</a>
-                            <a href="clear_modal.html" class="ms_save" data-toggle="modal" data-target="#save_modal">save</a>
+                            <a href="javascript:;" class="ms_clear" data-toggle="modal" data-target="#clear_modal">Xoá</a>
+                            <a href="clear_modal.html" class="ms_save" data-toggle="modal" data-target="#save_modal">Huỷ bỏ</a>
                         </div>
                     </div>
                 </div>

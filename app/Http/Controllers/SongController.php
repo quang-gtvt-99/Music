@@ -30,7 +30,8 @@ class SongController extends Controller
     public function index()
     {
         $songs = $this->song->paginate(10);
-        return view('song.index', compact('songs'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('song.index', compact('songs','songT1'));
     }
 
     public function details($id)
@@ -68,7 +69,8 @@ class SongController extends Controller
     public function showList()
     {
         $list = session()->get('list');
-        return view('song.favourite', compact('list'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('song.favourite', compact('list','songT1'));
     }
 
     public function deleteList(Request $request)
@@ -90,6 +92,13 @@ class SongController extends Controller
     {
         $song = $this->song->find($id);
         $song->number_listen = $song->number_listen + 1;
+        $song->save();
+    }
+
+    public function updateD($id)
+    {
+        $song = $this->song->find($id);
+        $song->number_download = $song->number_download + 1;
         $song->save();
     }
 

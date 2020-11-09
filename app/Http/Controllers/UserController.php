@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Song;
 use App\Models\User;
 use Illuminate\Http\Request;
-use PharIo\Manifest\Email;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -14,8 +14,9 @@ class UserController extends Controller
 {
 
     private  $user;
-    public function __construct(User $user)
+    public function __construct(User $user,Song $song)
     {
+        $this->song=$song;
         $this->user = $user;
     }
 
@@ -70,7 +71,8 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('home.user', compact('user'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('home.user', compact('user','songT1'));
     }
 
     public function update($id, Request $request)
@@ -94,16 +96,18 @@ class UserController extends Controller
     {
         $getInfo = Socialite::driver($provider)->user();
         $user = $this->createUser($getInfo, $provider);
-        auth()->login($user);
+        Auth::login($user);
         return redirect()->to('/home');
     }
     function createUser($getInfo, $provider)
     {
         $user = User::where('provider_id', $getInfo->id)->first();
         if (!$user) {
+            $avatar = $getInfo->getAvatar();
             $user = User::create([
                 'name'     => $getInfo->name,
                 'email'    => $getInfo->email,
+                'img_path'=>  $avatar,
                 'provider' => $provider,
                 'provider_id' => $getInfo->id
             ]);

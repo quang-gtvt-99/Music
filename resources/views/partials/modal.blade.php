@@ -7,20 +7,21 @@
                         <i class="fa_icon form_close"></i>
                     </button>
                     <div class="modal-body">
-                        <h1>language selection</h1>
-                        <p>Please select the language(s) of the music you listen to.</p>
+                        <h1>Ngôn ngữ</h1>
+                        <p>Chọn ngôn ngữ bạn muốn chuyển đổi:</p>
                         <ul class="lang_list">
+                        <form action="{{route('language',['language'=>'en'])}}">
                             <li>
                                 <label class="lang_check_label">
                                     English
-                                    <input type="checkbox" name="check">
+                                    <input class="check" type="checkbox" name="en" value="en">
                                     <span class="label-text"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="lang_check_label">
-                                    hindi
-                                    <input type="checkbox" name="check">
+                                    Tiếng việt
+                                    <input class="check" type="checkbox" name="vi" value="vi">
                                     <span class="label-text"></span>
                                 </label>
                             </li>
@@ -80,9 +81,11 @@
                                     <span class="label-text"></span>
                                 </label>
                             </li>
+                            </form>
                         </ul>
+                        
                         <div class="ms_lang_btn">
-                            <a href="#" class="ms_btn">apply</a>
+                            <button type="submit" class="ms_btn ms_lang">apply</button>
                         </div>
                     </div>
                 </div>
@@ -99,10 +102,10 @@
                         <i class="fa_icon form_close"></i>
                     </button>
                     <div class="modal-body">
-                        <h1>Are you sure you want to clear your queue?</h1>
+                        <h1>Bạn có muốn xoá tất cả?</h1>
                         <div class="clr_modal_btn">
-                            <a href="#">clear all</a>
-                            <a href="#">cancel</a>
+                            <a href="#" class="">Xoá</a>
+                            <a href="#">Huỷ bỏ</a>
                         </div>
                     </div>
                 </div>
@@ -123,8 +126,8 @@
                         <div class="modal-body">
                             <h1>Đăng nhập để tiếp tục!</h1>
                             <div class="save_modal_btn">
-                                <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Đăng nhập bằng google </a>
-                                <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i> Đăng nhập bằng facebook</a>
+                                <!-- <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Đăng nhập bằng google </a>/ -->
+                                <a href="{{route('loginfb',['provider'=>'facebook'])}}"><i class="fa fa-facebook-square" ></i> Đăng nhập bằng facebook</a>
                             </div>
                             <div class="ms_save_email">
                                 <h3>Hoặc bằng tài khoản của bạn</h3>
@@ -134,10 +137,10 @@
                                 <div class="save_input_group">
                                     <input type="password" placeholder="Enter Password" name="password" class="form-control">
                                 </div>
-                                <button type="submit">Đăng nhập</button>
+                                <button type="submit" class="login">Đăng nhập</button>
                             </div>
                             <div class="ms_dnt_have">
-                                <p>Bạn chưa có tài khoản? <a href="#myModal" data-toggle="modal" class="ms_modal1 hideCurrentModel">Đăng kí</a></p>
+                                <p>Bạn chưa có tài khoản? <a href="#myModal" data-toggle="modal" class="hideCurrentModel">Đăng kí</a></p>
                             </div>
                         </div>
                     </div>

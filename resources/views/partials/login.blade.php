@@ -35,8 +35,8 @@
                             </label>
                         </div>
                         <div class="save_modal_btn">
-                            <button type="submit" class="ms_btn"> Đăng nhập bằng google </button>
-                            <button type="submit" class="ms_btn"> Đăng nhập bằng facebook</button>
+                            <!-- <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Đăng nhập bằng google </a> -->
+                            <a href="{{route('loginfb',['provider'=>'facebook'])}}"><i class="fa fa-facebook-square"></i> Đăng nhập bằng facebook</a>
                         </div>
                         <button type="submit" class="ms_btn">Đăng nhập</button>
                         <div class="popup_forgot">

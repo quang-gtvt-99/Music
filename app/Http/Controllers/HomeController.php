@@ -33,13 +33,15 @@ class HomeController extends Controller
         $genres = $this->genres->get();
         $albums = $this->album->orderBy('number_visit', 'desc')->take(5)->get();
         $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
-        return view('home', compact('songs', 'artists', 'songRelase', 'genres', 'albums','songT1'));
+        $albumTop=$this->album->orderBy('number_visit', 'desc')->take(5)->get();
+        return view('home', compact('songs', 'artists', 'songRelase', 'genres', 'albums','songT1','albumTop'));
     }
 
     public function getSearch(Request $request)
     {
         $song = $this->song->where('name', 'like', '%' . $request->key . '%')->get();
-        return view('home.search', compact('song'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('home.search', compact('song','songT1'));
     }
 
     public function details($id)
@@ -49,5 +51,10 @@ class HomeController extends Controller
         $art=$song->artists;
         echo($song);
        //echo($art);
+    }
+
+    public function song(){
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('partials.header',compact('songT1'));
     }
 }

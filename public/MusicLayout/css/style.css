@@ -690,6 +690,7 @@ span.nav_text {
 	margin-right: 80px;
 }
 .ms_header {
+	height: 80px;
 	position: fixed;
 	background-color: #1b2039;
 	padding: 20px 50px;
@@ -873,8 +874,8 @@ ul.ms_lang_box:after {
 	font-weight: bold;
 	color: #fff;
 }
-.ms_banner_text p {
-	margin: 15px 0px 40px;
+.ms_banner_text a {
+	margin: 20px 0px 60px;
 	line-height: 30px;
 }
 /*====Recent Music Slider====*/
@@ -3405,9 +3406,9 @@ div#myModal1 p {
 .ms_register_form .save_modal_btn {
 	padding: 20px 0px;
 }
-.ms_register_form .save_modal_btn button {
+.ms_register_form .save_modal_btn a {
 	background-color: transparent;
-	display: inline-block;
+	/* display: inline-block; */
 	padding: 0px 15px;
 	border-radius: 20px;
 	height: 35px;
@@ -3418,8 +3419,9 @@ div#myModal1 p {
 	color: #fff;
 
 }
-.ms_register_form .save_modal_btn button:hover {
+.ms_register_form .save_modal_btn a:hover {
 	background-color: #fff;
+	color: #22bed7;
 }
 
 .save_modal_btn {
@@ -3491,7 +3493,11 @@ button.save_btn:hover {
 	position: relative;
 	top: 2px;
 }
+.ms_admin_title{
+	line-height: 50px;
+}
 .ms_admin_name {
+	display: flex;
 	float: right;
 	line-height: 30px;
 	font-size: 15px;
@@ -4532,6 +4538,7 @@ h2.widget-title:after {
 		font-size: 13px;
 	}
 	.ms_header {
+		height: 80px;
 		padding: 20px 30px;
 	}
 	.ms_top_right .ms_top_lang {
@@ -5161,7 +5168,7 @@ h2.widget-title:after {
 		height: 30px;
 		line-height: 47px;
 	}
-	span.search_icon {
+	button.search_icon {
 		height: 30px;
 		line-height: 32px;
 	}
@@ -6660,3 +6667,6 @@ h2.widget-title:after {
 .stt{
 	width: 10% !important;
 }
+/* a.jp-playlist-item-remove{
+	display: none !important
+} */

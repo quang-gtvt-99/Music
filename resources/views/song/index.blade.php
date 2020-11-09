@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="ms_content_wrapper padder_top80">
+<div class="ms_content_wrapper padder_top90">
 <div class="ms_weekly_inner">   
     <div class="row">
         <div class="col-lg-12">

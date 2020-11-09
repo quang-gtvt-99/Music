@@ -22,13 +22,15 @@ class GenresController extends Controller
 
     public function index(){
         $genres = $this->genres->get();
-        return view('genres.index',compact('genres'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('genres.index',compact('genres','songT1'));
     }
 
     public function detailGenres($id){
         $genres = $this->genres->find($id);
         $genresAll = $this->genres->get();
-        return view('genres.detailGenres', compact('genres','genresAll'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('genres.detailGenres', compact('genres','genresAll','songT1'));
     }
 
 }

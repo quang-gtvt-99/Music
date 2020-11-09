@@ -27,6 +27,8 @@ class TDownloadController extends Controller
         $songs = $this->song->take(20)->paginate(5);
         $songRelase = $this->song->latest()->limit(5)->get();
         $albums = $this->album->take(5)->get();
-        return view('downloadTop.index',compact('songs','songRelase','albums'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        
+        return view('downloadTop.index',compact('songs','songRelase','albums','songT1'));
     }
 }
