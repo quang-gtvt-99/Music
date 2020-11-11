@@ -3,7 +3,7 @@
     <div class="ms_top_left">
         <div class="ms_top_search">
             <form action="/search" method="get">
-                <input type="text" class="form-control" name="key" placeholder="Tìm kiếm">
+                <input type="text" class="form-control" name="key" placeholder="Nhập tên bài hát,ca sĩ...">
                 <button type="submit" class="fa fa-search search_icon"></button>
             </form>
         </div>

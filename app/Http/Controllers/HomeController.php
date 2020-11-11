@@ -41,7 +41,8 @@ class HomeController extends Controller
     {
         $song = $this->song->where('name', 'like', '%' . $request->key . '%')->get();
         $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
-        return view('home.search', compact('song','songT1'));
+        $artist = $this->artist->where('name', 'like', '%' . $request->key . '%')->get();
+        return view('home.search', compact('song','songT1','artist'));
     }
 
     public function details($id)
