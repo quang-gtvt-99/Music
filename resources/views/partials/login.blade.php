@@ -17,13 +17,13 @@
                     <div class="ms_register_form">
                         <h2>Đăng nhập</h2>
                         <div class="form-group">
-                            <input type="text" placeholder="Enter Your Email" name="email" class="form-control">
+                            <input type="email" placeholder="Enter Your Email" name="email" class="form-control" required>
                             <span class="form_icon">
                                 <i class="fa_icon form-envelope" aria-hidden="true"></i>
                             </span>
                         </div>
                         <div class="form-group">
-                            <input type="password" placeholder="Enter Password" name="password" class="form-control">
+                            <input type="password" placeholder="Enter Password" name="password" class="form-control" required>
                             <span class="form_icon">
                                 <i class="fa_icon form-lock" aria-hidden="true"></i>
                             </span>
@@ -34,6 +34,7 @@
                                 <span class="checkmark"></span>
                             </label>
                         </div>
+                        <h3>Hoặc bằng tài khoản của bạn</h3>
                         <div class="save_modal_btn">
                             <!-- <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Đăng nhập bằng google </a> -->
                             <a href="{{route('loginfb',['provider'=>'facebook'])}}"><i class="fa fa-facebook-square"></i> Đăng nhập bằng facebook</a>

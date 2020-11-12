@@ -17,8 +17,8 @@
                     @endif
                     @endforeach
                     <div class="ms_banner_btn">
-                        <a href="#" class="ms_btn">Nghe bây giờ</a>
-                        <a href="#" class="ms_btn">Thêm vào thư viện</a>
+                        <a href="javascript:void(0)" class="ms_btn play_now" onclick="get_detail_album()">Nghe bây giờ</a>
+                        <a href="#" class="ms_btn">Thêm vào sau</a>
                     </div>
                 </div>
             </div>

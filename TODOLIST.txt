@@ -1,13 +1,11 @@
-1.Đăng nhập đăng kí-(done *validate dang nhap)
+1.Đăng nhập đăng kí-(done)
 2.Thêm danh sách yêu thích-(done)
 3.Xoá khỏi danh sách yêu thích-(done)
-4.Click update lượt nghe, lượt download(-done update lượt nghe)
+4.Click update lượt nghe, lượt download(-done)
 5.Update thông tin cá nhân(-done còn validate update)
 6.Fix bug Jplayer(-done)
-7.Đăng nhập bằng fb, google
+7.Đăng nhập bằng fb, google(-done)
 8.Sửa query get infor top bài hát...
-9.Đa ngôn ngữ
+9.Đa ngôn ngữ(-cancel)
 10.download(-done)
 11.SET ALL ROUTE
-12.loading
-13.elasticsearch

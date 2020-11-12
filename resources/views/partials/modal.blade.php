@@ -85,7 +85,7 @@
                         </ul>
                         
                         <div class="ms_lang_btn">
-                            <button type="submit" class="ms_btn ms_lang">apply</button>
+                            <button type="submit" class="ms_btn ms_lang">xác nhận</button>
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                                 <div class="save_input_group">
                                     <input type="password" placeholder="Enter Password" name="password" class="form-control">
                                 </div>
-                                <button type="submit" class="login">Đăng nhập</button>
+                                <button type="submit" style="border:none" class="login ms_btn">Đăng nhập</button>
                             </div>
                             <div class="ms_dnt_have">
                                 <p>Bạn chưa có tài khoản? <a href="#myModal" data-toggle="modal" class="hideCurrentModel">Đăng kí</a></p>
@@ -196,3 +196,55 @@
             </div>
         </div>
     </div>
+
+
+    <div class="ms_clear_modal">
+        <div id="success_signin" class="modal  centered-modal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fa_icon form_close"></i>
+                    </button>
+                    <div class="modal-body">
+                        <h1>Đăng kí tài khoản thành công</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="ms_clear_modal">
+        <div id="err_login" class="modal  centered-modal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fa_icon form_close"></i>
+                    </button>
+                    <div class="modal-body">
+                        <h1>Tài khoản hoặc mật khẩu không chính xác</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ms_clear_modal">
+        <div id="notice" class="modal  centered-modal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fa_icon form_close"></i>
+                    </button>
+                    <div class="modal-body">
+                        <h1>Tính năng này đang được phát triển</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    

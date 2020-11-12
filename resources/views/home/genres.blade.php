@@ -16,14 +16,14 @@
                         <img src="MusicLayout/images/svg/play.svg" alt="">
                     </div>
                     <div class="ovrly_text_div">
-                        <span class="ovrly_text1"><a href="#">{{$gr->name}}</a></span>
-                        <span class="ovrly_text2"><a href="#">Xem</a></span>
+                        <span class="ovrly_text1"><a href="{{route('genres.detail',['id'=>$gr->id])}}">{{$gr->name}}</a></span>
+                        <span class="ovrly_text2"><a href="{{route('genres.detail',['id'=>$gr->id])}}">Xem</a></span>
                     </div>
                 </div>
                 <div class="ms_box_overlay_on">
                     <div class="ovrly_text_div">
-                        <span class="ovrly_text1"><a href="#">{{$gr->name}}</a></span>
-                        <span class="ovrly_text2"><a href="#">Xem</a></span>
+                        <span class="ovrly_text1"><a href="{{route('genres.detail',['id'=>$gr->id])}}">{{$gr->name}}</a></span>
+                        <span class="ovrly_text2"><a href="{{route('genres.detail',['id'=>$gr->id])}}">Xem</a></span>
                     </div>
                 </div>
             </div>

@@ -65,8 +65,12 @@
         @if(count($errors) > 0)
         $('#myModal').modal('show');
         @elseif(Session::has('success'))
-        alert('Đăng kí tài khoản thành công');
+        $('#success_signin').modal('show');
+        @elseif(Session::has('message'))
+        $('#err_login').modal('show');
         @endif
+
+
     </script>
     <!-- Load Facebook SDK for JavaScript -->
     <!-- <div id="fb-root"></div>

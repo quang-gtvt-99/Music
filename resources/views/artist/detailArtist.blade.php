@@ -18,7 +18,7 @@
                 {{$artist->des}}
             </div>
             <div class="album_btn">
-                <a href="#" class="ms_btn play_btn"><span class="play_all"><img src="{{asset('MusicLayout/images/svg/play_all.svg')}}" alt="">Nghe tất cả</span><span class="pause_all"><img src="images/svg/pause_all.svg" alt="">Pause</span></a>
+                <a href="javascript:void(0)" class="ms_btn" onclick="get_detail_artist()"><span class="play_all"><img src="{{asset('MusicLayout/images/svg/play_all.svg')}}" alt="">Nghe tất cả</span><span class="pause_all"><img src="images/svg/pause_all.svg" alt="">Pause</span></a>
                 <a href="#" class="ms_btn"><span class="play_all"><img src="{{asset('MusicLayout/images/svg/add_q.svg')}}" alt="">Thêm vào sau</span></a>
             </div>
         </div>

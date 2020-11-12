@@ -39,6 +39,13 @@ Route::prefix('home')->group(function () {
         'as' => 'home.song',
         'uses' => 'App\Http\Controllers\HomeController@song'
     ]);
+
+    Route::get('/play/album', [
+        'as' => 'albumTop',
+        'uses' => 'App\Http\Controllers\HomeController@albumTop'
+    ]);
+
+   
     
 });
 
@@ -51,6 +58,11 @@ Route::prefix('artist')->group(function () {
     Route::get('/detail/{id}', [
         'as' => 'artist.detail',
         'uses' => 'App\Http\Controllers\ArtistController@details'
+    ]);
+
+    Route::get('/song', [
+        'as' => 'art.song',
+        'uses' => 'App\Http\Controllers\ArtistController@artistSong'
     ]);
     
 });

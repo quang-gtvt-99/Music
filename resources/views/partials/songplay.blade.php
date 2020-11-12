@@ -31,7 +31,7 @@
                 <div class="jp_queue_wrapper">
                     <span class="que_text" id="myPlaylistQueue"><i class="fa fa-angle-up" aria-hidden="true"></i> Danh sách</span>
                     <div id="playlist-wrap" class="jp-playlist">
-                        <div class="jp_queue_cls"><i class="fa fa-times" aria-hidden="true"></i></div>
+                        <div class="jp_queue_cls cls"><i class="fa fa-times" aria-hidden="true"></i></div>
                         <h2>Đang phát</h2>
                         <div class="jp_queue_list_inner">
                             <ul>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="jp_queue_btn">
                             <a href="javascript:;" class="ms_clear" data-toggle="modal" data-target="#clear_modal">Xoá</a>
-                            <a href="clear_modal.html" class="ms_save" data-toggle="modal" data-target="#save_modal">Huỷ bỏ</a>
+                            <a href="#" class="ms_save cls" >Huỷ bỏ</a>
                         </div>
                     </div>
                 </div>

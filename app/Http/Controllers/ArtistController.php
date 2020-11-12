@@ -34,4 +34,8 @@ class ArtistController extends Controller
 
         return view('artist.detailArtist', compact('artist','artistAll','songT1'));
     }
+
+    public function artistSong(){
+        dd('test');
+    }
 }

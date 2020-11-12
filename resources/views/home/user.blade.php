@@ -19,19 +19,19 @@
             <div class="ms_pro_form">
                 <div class="form-group">
                     <label>Tên của bạn</label>
-                    <input type="text" value="{{$user->name}}" name="name" class="form-control">
+                    <input type="text" value="{{$user->name}}" name="name" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" value="{{$user->email}}" name="email" class="form-control">
+                    <input type="email" value="{{$user->email}}" name="email" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Mật khẩu</label>
-                    <input type="password" value="{{$user->password}}" name="password" class="form-control">
+                    <input type="password" value="{{$user->password}}" name="password" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Xác nhận mật khẩu</label>
-                    <input type="password" placeholder="******" name="comfirmpass" class="form-control">
+                    <input type="password" placeholder="******" name="comfirmpass" class="form-control" required>
                 </div>
                 <div class="pro-form-btn text-center marger_top15">
                     <button class="ms_btn" data-url="{{route('signin')}}" style="border:none">Lưu</button>

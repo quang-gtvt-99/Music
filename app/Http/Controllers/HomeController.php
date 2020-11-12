@@ -54,8 +54,23 @@ class HomeController extends Controller
        //echo($art);
     }
 
+    public function albumTop()
+    {
+        $arr = array();
+        $albumTop=$this->album->orderBy('number_visit', 'desc')->take(5)->get();
+        foreach($albumTop as $album){
+            foreach($album->songs as $song){
+                $art=$song->artists;
+                array_push($arr, json_decode($song, true));
+            }
+        }
+        print_r(json_encode($arr));
+    }
+
     public function song(){
         $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
         return view('partials.header',compact('songT1'));
     }
+
+
 }

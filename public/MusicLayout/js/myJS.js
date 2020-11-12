@@ -144,6 +144,10 @@ function checkLang(){
         })
 }
 
+function notice(){
+    $('#notice').modal('show');
+}
+
 $(function () {
     $('.add_favourite').on('click', addFavourite);
     $('.song_delete').on('click', deleteFavourite);
@@ -151,11 +155,14 @@ $(function () {
     $('.ms_clear').on('click', test);
     $('.ms_lang').on('click', checkLang);
     $('.download').on('click', updateSongD);
+    $('.dev').on('click', notice);
 });
 
 ///getttt audio
+function setAudio(){
 var myPlayListOtion = '<ul class="more_option"><li><a href="#"><span class="opt_icon" title="Add To Favourites"><span class="icon icon_fav"></span></span></a></li><li><a href="#"><span class="opt_icon" title="Add To Queue"><span class="icon icon_queue"></span></span></a></li><li><a href="#"><span class="opt_icon" title="Download Now"><span class="icon icon_dwn"></span></span></a></li><li><a href="#"><span class="opt_icon" title="Add To Playlist"><span class="icon icon_playlst"></span></span></a></li><li><a href="#"><span class="opt_icon" title="Share"><span class="icon icon_share"></span></span></a></li></ul>';
 $(document).ready(function(){
+    if(sessionStorage.length){
     var playList = [];
         for (let i = 0; i < sessionStorage.length; i++) {
             var art = [];
@@ -173,8 +180,6 @@ $(document).ready(function(){
             });
 
         }
-
-        console.log(playList);
 
         if (playList.length) {
             var myPlaylist = new jPlayerPlaylist({
@@ -294,4 +299,6 @@ $(document).ready(function(){
 
             });
         }
+    }
 })
+}

@@ -27,11 +27,11 @@
     </div>
     <div class="ms_top_right">
         <div class="ms_top_lang">
-            <span data-toggle="modal" data-target="#lang_modal">Ngôn ngữ <img src="{{asset('MusicLayout/images/svg/lang.svg')}}" alt=""></span>
+            <span class="dev">Ngôn ngữ <img src="{{asset('MusicLayout/images/svg/lang.svg')}}" alt=""></span>
         </div>
         <div class="ms_top_btn">
             @if(Auth::check())
-            <a href="upload.html" class="ms_btn">upload</a>
+            <a href="" class="ms_btn dev">upload</a>
             <a href="javascript:;" class="ms_admin_name"><span class="ms_admin_title">Chào {{Auth::user()->name}}</span> <span class="ms_pro_name" style="background-image:url('{{Auth::user()->img_path}}') !important;background-repeat: no-repeat, repeat;background-size: cover"></span>
             </a>
             <ul class="pro_dropdown_menu">
