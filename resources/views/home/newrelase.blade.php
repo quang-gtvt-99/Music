@@ -1,7 +1,7 @@
 <div class="ms_releases_wrapper">
     <div class="ms_heading">
         <h1>Mới phát hành</h1>
-        <span class="veiw_all"><a href="#">Xem thêm</a></span>
+        <span class="veiw_all"><a href="{{ route('song.index') }}">Xem thêm</a></span>
     </div>
     <div class="ms_release_slider swiper-container">
         <div class="ms_divider"></div>

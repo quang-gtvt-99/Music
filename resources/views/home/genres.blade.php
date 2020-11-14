@@ -13,7 +13,7 @@
                 <div class="ms_main_overlay">
                     <div class="ms_box_overlay"></div>
                     <div class="ms_play_icon">
-                        <img src="MusicLayout/images/svg/play.svg" alt="">
+                        <img src="{{asset('MusicLayout/images/svg/play.svg')}}" alt="">
                     </div>
                     <div class="ovrly_text_div">
                         <span class="ovrly_text1"><a href="{{route('genres.detail',['id'=>$gr->id])}}">{{$gr->name}}</a></span>

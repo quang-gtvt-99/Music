@@ -31,7 +31,7 @@
         </div>
         <div class="ms_top_btn">
             @if(Auth::check())
-            <a href="" class="ms_btn dev">upload</a>
+            <a href="#" class="ms_btn dev">upload</a>
             <a href="javascript:;" class="ms_admin_name"><span class="ms_admin_title">Chào {{Auth::user()->name}}</span> <span class="ms_pro_name" style="background-image:url('{{Auth::user()->img_path}}') !important;background-repeat: no-repeat, repeat;background-size: cover"></span>
             </a>
             <ul class="pro_dropdown_menu">

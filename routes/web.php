@@ -60,9 +60,14 @@ Route::prefix('artist')->group(function () {
         'uses' => 'App\Http\Controllers\ArtistController@details'
     ]);
 
-    Route::get('/song', [
+    Route::get('/song/{id}', [
         'as' => 'art.song',
         'uses' => 'App\Http\Controllers\ArtistController@artistSong'
+    ]);
+
+    Route::get('/update/{id}', [
+        'as' => 'artist.update',
+        'uses' => 'App\Http\Controllers\ArtistController@update'
     ]);
     
 });
@@ -151,6 +156,11 @@ Route::prefix('song')->group(function () {
     Route::post('/updateD/{id}', [
         'as' => 'song.updateD',
         'uses' => 'App\Http\Controllers\SongController@updateD'
+    ]);
+
+    Route::get('/showcmt/{id}', [
+        'as' => 'song.showcmt',
+        'uses' => 'App\Http\Controllers\SongController@showCmt'
     ]);
 
     

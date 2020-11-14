@@ -7,6 +7,7 @@ use App\Models\Song;
 use App\Models\Artist;
 use App\Models\SongArtist;
 use App\Models\SongAlbum;
+use App\Models\SongUser;
 use App\Models\Album;
 use App\Models\Favourite;
 use Facade\FlareClient\Stacktrace\File;
@@ -15,7 +16,7 @@ use Illuminate\Http\Request;
 class SongController extends Controller
 {
     private  $song, $genres, $artist, $songArtist, $album, $songAlbum;
-    public function __construct(Song $song, Genres $genres, Artist $artist, SongArtist $songArtist, Album $album, SongAlbum $songAlbum, Favourite $favourite)
+    public function __construct(Song $song, Genres $genres, Artist $artist, SongArtist $songArtist, Album $album, SongAlbum $songAlbum, Favourite $favourite,SongUser $songUser)
     {
 
         $this->song = $song;
@@ -25,6 +26,7 @@ class SongController extends Controller
         $this->album = $album;
         $this->favourite = $favourite;
         $this->songAlbum = $songAlbum;
+        $this->songUser = $songUser;
     }
 
     public function index()
@@ -156,6 +158,12 @@ class SongController extends Controller
             print fread($fm, min(1024 * 16, ($end - $cur) + 1));
             $cur += 1024 * 16;
         }
+    }
+
+    public function showCmt($id){
+        $song = $this->song->find($id);
+        $cmt=$this->songUser->where('id_song',$id)->get();
+        echo($cmt);
     }
 
     public function getDownload(File $file)

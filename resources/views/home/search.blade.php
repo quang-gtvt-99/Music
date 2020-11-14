@@ -32,8 +32,7 @@
                                 </div>
                             </div>
                             <div class="w_tp_song_name">
-                                <h3><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}"
-                                class="song_play set" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a></h3>
+                                <h3><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play set" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a></h3>
                                 @foreach ($song->artists as $sa)
                                 <p>{{$sa->name}}</p>
                                 @endforeach
@@ -73,31 +72,31 @@
         </div>
     </div>
     <div class="ms_top_artist">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ms_heading">
-                                <h1>Ca sĩ</h1>
-                            </div>
-                        </div>
-                        @foreach($artist as $artAll)
-                        <div class="col-lg-2 col-md-6">
-                            <div class="ms_rcnt_box marger_bottom30">
-                                <div class="ms_rcnt_box_img">
-                                    <img src="{{$artAll->img_path}}" alt="" class="img-fluid">
-                                    <div class="ms_main_overlay">
-                                        <div class="ms_box_overlay"></div>
-                                        
-                                    </div>
-                                </div>
-                                <div class="ms_rcnt_box_text">
-                                    <h3><a href="{{route('artist.detail',['id'=>$artAll->id])}}">{{$artAll->name}}</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ms_heading">
+                        <h1>Ca sĩ</h1>
                     </div>
                 </div>
+                @foreach($artist as $artAll)
+                <div class="col-lg-2 col-md-6">
+                    <div class="ms_rcnt_box marger_bottom30">
+                        <div class="ms_rcnt_box_img">
+                            <img src="{{$artAll->img_path}}" alt="" class="img-fluid">
+                            <div class="ms_main_overlay">
+                                <div class="ms_box_overlay"></div>
+
+                            </div>
+                        </div>
+                        <div class="ms_rcnt_box_text">
+                            <h3><a href="{{route('artist.detail',['id'=>$artAll->id])}}">{{$artAll->name}}</a></h3>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
+        </div>
+    </div>
 </div>
 @endsection

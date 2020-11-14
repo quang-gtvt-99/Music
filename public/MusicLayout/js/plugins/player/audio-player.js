@@ -2,7 +2,6 @@ var myPlayListOtion = '<ul class="more_option"><li><a href="#"><span class="opt_
 function get_detail_song(id) {
     $.get('/home/detail/' + id, function (data) {
         var obj = JSON.parse(data)
-        console.log(data);
         var playList = [];
         sessionStorage.setItem(obj.id, data);
         setAudio();
@@ -19,9 +18,3 @@ function get_detail_album() {
         }
     })
 };
-
-function get_detail_artist(){
-    $.get('song', function (data) {
-        
-    })
-}

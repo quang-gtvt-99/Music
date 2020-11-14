@@ -18,19 +18,11 @@
                 {{$artist->des}}
             </div>
             <div class="album_btn">
-                <a href="javascript:void(0)" class="ms_btn" onclick="get_detail_artist()"><span class="play_all"><img src="{{asset('MusicLayout/images/svg/play_all.svg')}}" alt="">Nghe tất cả</span><span class="pause_all"><img src="images/svg/pause_all.svg" alt="">Pause</span></a>
+                <a href="javascript:void(0)" class="ms_btn art_play" data-url="{{route('art.song',['id'=>$artist->id])}}"><span class="play_all"><img src="{{asset('MusicLayout/images/svg/play_all.svg')}}" alt="">Nghe tất cả</span><span class="pause_all"><img src="images/svg/pause_all.svg" alt="">Pause</span></a>
                 <a href="#" class="ms_btn"><span class="play_all"><img src="{{asset('MusicLayout/images/svg/add_q.svg')}}" alt="">Thêm vào sau</span></a>
             </div>
         </div>
-        <div class="album_more_optn ms_more_icon">
-            <span><img src="{{asset('MusicLayout/images/svg/more.svg')}}" alt=""></span>
-        </div>
-        <ul class="more_option">
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_fav"></span></span>Thêm vào danh sách </a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
-            <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
-        </ul>
+        
     </div>
     <!----Song List---->
     <div class="album_inner_list">

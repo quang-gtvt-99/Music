@@ -9,3 +9,8 @@
 9.Đa ngôn ngữ(-cancel)
 10.download(-done)
 11.SET ALL ROUTE
+
+
+//validate
+3.phát tất cả album
+fix update luot nghe

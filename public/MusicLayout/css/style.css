@@ -6670,3 +6670,56 @@ h2.widget-title:after {
 /* a.jp-playlist-item-remove{
 	display: none !important
 } */
+
+/* comment */
+.modal-body-cmt{
+height: 500px;
+}
+.modal-body-cmt h2{
+	font-size: 24px;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+	position: relative;
+	display: inline-block;
+	text-transform: capitalize;
+}
+
+.modal-body-cmt .ms_cmt-content{
+	height: 400px;
+	overflow:auto;
+}
+.modal-body-cmt .ms_enter{
+	display: flex;
+}
+.modal-body-cmt .ms_enter input{
+	width: 700px;
+	height: 60px;
+	border: none;
+	margin: 10px 10px 10px 0px;
+	border-radius: 10px;
+}
+.modal-body-cmt .ms_enter button{
+	height: 60px;
+    margin: 10px;
+    width: 100px;
+    border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.ms_cmt-content .content-wrap{
+	display: flex;
+	margin-bottom: 10px;
+}
+.ms_cmt-content .content-wrap img{
+	margin: 10px;
+}
+.content_title{
+	display: flex;
+}
+.content_title .name{
+	color: black;
+    width: auto !important;
+    margin-right: 20px;
+}

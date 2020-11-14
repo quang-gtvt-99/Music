@@ -41,9 +41,12 @@
                         </div>
                         <ul class="more_option">
                             <li><a href="" data-id="{{$key}}" class="song_delete"><span class="opt_icon"><span class="icon icon_fav"></span></span>Xoá khỏi danh sách</a></li>
-                            <li><a href="#"><span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a></li>
-                            <li><a href="#"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
-                            <li><a href="#"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
+                            <li>
+                                <a href="{{route('download',['file'=>$song->song_path])}}" class="download" download="{{$song->song_path}}" data-url="{{route('song.updateD',['id'=>$song->id])}}">
+                                    <span class="opt_icon"><span class="icon icon_dwn"></span></span>Tải xuống</a>
+                            </li>
+                            <li><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play" onClick="get_detail_song({{$song->id}})"><span class="opt_icon"><span class="icon icon_playlst"></span></span>Thêm vào Playlist</a></li>
+                            <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000{{$song->song_path}}"><span class="opt_icon"><span class="icon icon_share"></span></span>Chia sẻ</a></li>
 
                         </ul>
                     </div>

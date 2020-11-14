@@ -30,7 +30,7 @@
     <!----Loader Start---->
     <div class="ms_loader">
         <div class="wrap">
-            <img src="MusicLayout/images/loader.gif" alt="">
+            <img src="{{asset('MusicLayout/images/loader.gif')}}" alt="">
         </div>
     </div>
     <div class="ms_main_wrapper">
