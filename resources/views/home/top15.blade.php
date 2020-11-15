@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                             <div class="w_tp_song_name">
-                                <h3><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play set" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a></h3>
+                                <h3><a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play set" onClick="get_only_song({{$song->id}})">{{$song->name}}</a></h3>
                                 @foreach ($song->artists as $sa)
                                 <p>{{$sa->name}}</p>
                                 @endforeach

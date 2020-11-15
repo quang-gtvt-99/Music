@@ -14,3 +14,5 @@
 //validate
 3.phát tất cả album
 fix update luot nghe
+
+1.set pplay_next click thi flag=0

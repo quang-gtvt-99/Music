@@ -18,3 +18,4 @@ function get_detail_album() {
         }
     })
 };
+

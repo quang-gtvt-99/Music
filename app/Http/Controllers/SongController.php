@@ -55,6 +55,7 @@ class SongController extends Controller
             ], 200);
         } else {
             $list[$id] = [
+                'id'=>$song->id,
                 'name' => $song->name,
                 'time' => $song->time,
                 'img_path' => $song->img_path,

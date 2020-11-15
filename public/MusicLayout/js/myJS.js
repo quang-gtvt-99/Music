@@ -42,16 +42,15 @@ function deleteFavourite(e) {
     })
 };
 //update luowtj nghe
-function updateSong(u) {
+function updateSong(id) {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    let url='';
-    console.log(url);
-    if (u != null) {
-        url = u;
+    let url = '';
+    if (typeof id != "object") {
+        url = id;
     } else {
         url = $(this).data('url');
     }
@@ -115,40 +114,41 @@ function update_art(e) {
     })
 }
 
-function get_song(id) {
+function get_only_song(id) {
     $.get('/home/detail/' + id, function (data) {
-        console.log(id + ':' + data);
-        console.log(data);
         var obj = JSON.parse(data);
-        $(document).ready(function () {
-            $("#jquery_jplayer_1").jPlayer({
-                ready: function () {
-                    $(this).jPlayer("setMedia", {
-                        image: obj.img_path,
-                        title: obj.name,
-                        artist: "Unknown",
-                        mp3: obj.song_path,
-                    });
-                },
-                cssSelectorAncestor: "#jp_container_1",
-                swfPath: "/js",
-                supplied: "mp3",
-                useStateClassSkin: true,
-                autoBlur: false,
-                smoothPlayBar: true,
-                keyEnabled: true,
-                remainingDuration: true,
-                toggleDuration: true,
-                playlistOptions: {
-                    autoPlay: true,
-                }
-            });
+        $('#jquery_jplayer_1').jPlayer("clearMedia");
+        console.log('conti');
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function () {
+                $(this).jPlayer("setMedia", {
+                    image: obj.img_path,
+                    title: obj.name,
+                    artist: "Unknown",
+                    mp3: obj.song_path,
+                }).jPlayer('play');
+            },
+            cssSelectorAncestor: "#jp_container_1",
+            swfPath: "/js",
+            preload: 'metadata',
+            supplied: "mp3",
+            errorAlerts: true,
+            useStateClassSkin: true,
+            autoBlur: false,
+            smoothPlayBar: true,
+            keyEnabled: true,
+            remainingDuration: true,
+            toggleDuration: true,
+            playlistOptions: {
+                autoPlay: true,
+            }
         })
+        $(".jp-now-playing").html("<div class='jp-track-name'><span class='que_img'><img width='50' height='50' src='" + obj.img_path + "'></span><div class='que_data'>" + obj.name + " <div class='jp-artist-name'>" + obj.artist + "</div></div></div>");
 
     })
 }
 
-function get_detail_artist(e){
+function get_detail_artist(e) {
     e.preventDefault();
     let url = $(this).data('url');
     console.log(url);
@@ -160,7 +160,7 @@ function get_detail_artist(e){
             sessionStorage.clear();
             var rev = data;
             console.log(rev);
-            for(let i=0;i<rev.length;i++){
+            for (let i = 0; i < rev.length; i++) {
                 sessionStorage.setItem(rev[i].id, JSON.stringify(rev[i]));
                 setAudio();
             }
@@ -195,6 +195,11 @@ function notice() {
     $('#notice').modal('show');
 }
 
+function setFlag() {
+    console.log('test');
+    localStorage.setItem('flag', 0)
+}
+
 $(function () {
     $('.add_favourite').on('click', addFavourite);
     $('.song_delete').on('click', deleteFavourite);
@@ -204,6 +209,7 @@ $(function () {
     $('.dev').on('click', notice);
     $('.artist_play').on('click', update_art)
     $('.art_play').on('click', get_detail_artist)
+    $('.jp-next').on('click', setFlag)
 });
 
 ///getttt audio
@@ -241,7 +247,9 @@ function setAudio() {
                     useStateClassSkin: true,
                     autoBlur: true,
                     smoothPlayBar: true,
+                    errorAlerts: true,
                     toggleDuration: true,
+                    preload: 'metadata',
                     keyEnabled: true,
                     playlistOptions: {
                         autoPlay: true,
@@ -295,7 +303,6 @@ function setAudio() {
                         }
                         return (angle < 0) ? angle + 360 : angle;
                     }
-
                     var timeDrag = false;
                     $('.jp-play-bar').mousedown(function (e) {
                         timeDrag = true;
@@ -321,6 +328,7 @@ function setAudio() {
                         console.log(progress.width());
                         var percentage = 100 * position / progress.width();
                         if (percentage > 100) {
+                            console.log('ended');
                             percentage = 100;
                         }
                         if (percentage < 0) {
