@@ -208,24 +208,27 @@ function clearList() {
 }
 
 var fl = 0;
+
 function disableInput() {
-    fl=fl+1;
+    fl = fl + 1;
     if (fl % 2 !== 0) {
         $('#password').removeAttr('disabled');
         $('#repass').removeAttr('disabled');
         $('#name').attr('disabled', 'disabled');
         $('#email').attr('disabled', 'disabled');
-        $('.btn_update').prop("disabled",true);
+        $('.btn_update').prop("disabled", true);
         $(".btn_repass").html('Huỷ');
-    }else{
+    } else {
         $('#name').removeAttr('disabled');
         $('#email').removeAttr('disabled');
         $('#password').attr('disabled', 'disabled');
         $('#repass').attr('disabled', 'disabled');
         $(".btn_repass").html('Đổi mật khẩu');
-        $('.btn_update').prop("disabled",false);
+        $('.btn_update').prop("disabled", false);
     }
 }
+
+
 
 $(function () {
     $('.add_favourite').on('click', addFavourite);
@@ -239,6 +242,14 @@ $(function () {
     $('.jp-next').on('click', setFlag)
     $('.clear_all').on('click', clearList)
     $('.btn_repass').on('click', disableInput)
+    $('#password, #repass').on('keyup', function () {
+        if ($('#password').val() != $('#repass').val()) {
+            this.setCustomValidity("Mật khẩu không trùng khớp");
+            this.reportValidity();
+        } else {
+
+        }
+    });
 });
 
 ///getttt audio

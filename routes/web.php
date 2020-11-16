@@ -122,6 +122,11 @@ Route::prefix('user')->group(function () {
         'as' => 'user.update',
         'uses' => 'App\Http\Controllers\UserController@update'
     ]);
+
+    Route::post('/update/{id}', [
+        'as' => 'user.update',
+        'uses' => 'App\Http\Controllers\UserController@update'
+    ]);
     
 });
 
