@@ -117,13 +117,17 @@ function update_art(e) {
 function get_only_song(id) {
     $.get('/home/detail/' + id, function (data) {
         var obj = JSON.parse(data);
-        $("#jquery_jplayer_1").jPlayer( "destroy" );
+        var art = [];
+        for (let i = 0; i < obj.artists.length; i++) {
+            art.push(obj.artists[i].name)
+        };
+        $("#jquery_jplayer_1").jPlayer("destroy");
         $("#jquery_jplayer_1").jPlayer({
             ready: function () {
                 $(this).jPlayer("setMedia", {
                     image: obj.img_path,
                     title: obj.name,
-                    artist: "Unknown",
+                    artist: art.join(' & '),
                     mp3: obj.song_path,
                 }).jPlayer('play');
             },
@@ -136,13 +140,12 @@ function get_only_song(id) {
             autoBlur: false,
             smoothPlayBar: true,
             keyEnabled: true,
-            remainingDuration: true,
             toggleDuration: true,
             playlistOptions: {
                 autoPlay: true,
             }
         })
-        $(".jp-now-playing").html("<div class='jp-track-name'><span class='que_img'><img width='50' height='50' src='" + obj.img_path + "'></span><div class='que_data'>" + obj.name + " <div class='jp-artist-name'>" + obj.artist + "</div></div></div>");
+        $(".jp-now-playing").html("<div class='jp-track-name'><span class='que_img'><img width='50' height='50' src='" + obj.img_path + "'></span><div class='que_data'>" + obj.name + " <div class='jp-artist-name'>" + art.join(' & ') + "</div></div></div>");
 
     })
 }
@@ -199,6 +202,31 @@ function setFlag() {
     localStorage.setItem('flag', 0)
 }
 
+function clearList() {
+    sessionStorage.clear();
+    location.reload();
+}
+
+var fl = 0;
+function disableInput() {
+    fl=fl+1;
+    if (fl % 2 !== 0) {
+        $('#password').removeAttr('disabled');
+        $('#repass').removeAttr('disabled');
+        $('#name').attr('disabled', 'disabled');
+        $('#email').attr('disabled', 'disabled');
+        $('.btn_update').prop("disabled",true);
+        $(".btn_repass").html('Huỷ');
+    }else{
+        $('#name').removeAttr('disabled');
+        $('#email').removeAttr('disabled');
+        $('#password').attr('disabled', 'disabled');
+        $('#repass').attr('disabled', 'disabled');
+        $(".btn_repass").html('Đổi mật khẩu');
+        $('.btn_update').prop("disabled",false);
+    }
+}
+
 $(function () {
     $('.add_favourite').on('click', addFavourite);
     $('.song_delete').on('click', deleteFavourite);
@@ -209,6 +237,8 @@ $(function () {
     $('.artist_play').on('click', update_art)
     $('.art_play').on('click', get_detail_artist)
     $('.jp-next').on('click', setFlag)
+    $('.clear_all').on('click', clearList)
+    $('.btn_repass').on('click', disableInput)
 });
 
 ///getttt audio

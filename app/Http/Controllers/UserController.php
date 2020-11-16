@@ -14,9 +14,9 @@ class UserController extends Controller
 {
 
     private  $user;
-    public function __construct(User $user,Song $song)
+    public function __construct(User $user, Song $song)
     {
-        $this->song=$song;
+        $this->song = $song;
         $this->user = $user;
     }
 
@@ -72,19 +72,33 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
-        return view('home.user', compact('user','songT1'));
+        return view('home.user', compact('user', 'songT1'));
     }
 
     public function update($id, Request $request)
     {
-        $fileName = $request->img_path->getClientOriginalName();
-        $this->user->find($id)->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-            'img_path' => Storage::url($request->file('img_path')->storeAs('public/user', $fileName)),
-        ]);
-        return redirect()->action('App\Http\Controllers\UserController@index');
+        $user = Auth::user();
+        $date = date("Y-m-d", strtotime($user->updated_at));
+        $day_2 = date('Y-m-d'); //current date
+        $remainDate = (strtotime($day_2) - strtotime($date)) / (60 * 60 * 24);
+        if ($remainDate > 60) {
+            if ($request->img_path) {
+                $fileName = $request->img_path->getClientOriginalName();
+                $this->user->find($id)->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'img_path' => Storage::url($request->file('img_path')->storeAs('public/user', $fileName)),
+                ]);
+            } else {
+                $this->user->find($id)->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                ]);
+            }
+            return redirect()->action('App\Http\Controllers\UserController@index');
+        } else {
+            return redirect()->back()->with(['flag' => 'danger', 'mess' => 'Chưa đủ 60 ngày để đổi tên']);
+        }
     }
 
     //dang nhap facebook
@@ -107,7 +121,7 @@ class UserController extends Controller
             $user = User::create([
                 'name'     => $getInfo->name,
                 'email'    => $getInfo->email,
-                'img_path'=>  $avatar,
+                'img_path' =>  $avatar,
                 'provider' => $provider,
                 'provider_id' => $getInfo->id
             ]);

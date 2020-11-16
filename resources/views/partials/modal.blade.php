@@ -104,7 +104,7 @@
                 <div class="modal-body">
                     <h1>Bạn có muốn xoá tất cả?</h1>
                     <div class="clr_modal_btn">
-                        <a href="#" class="">Xoá</a>
+                        <a href="#" class="clear_all">Xoá</a>
                         <a href="#">Huỷ bỏ</a>
                     </div>
                 </div>
@@ -242,6 +242,22 @@
                 </button>
                 <div class="modal-body">
                     <h1>Tính năng này đang được phát triển</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ms_clear_modal">
+    <div id="err_update" class="modal  centered-modal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="fa_icon form_close"></i>
+                </button>
+                <div class="modal-body">
+                    <h1>Chưa đủ 60 ngày để cập nhật</h1>
                 </div>
             </div>
         </div>

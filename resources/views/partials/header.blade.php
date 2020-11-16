@@ -15,11 +15,9 @@
                  @foreach($songT1 as $key=> $song)
                  
                 @if($key==1)
-                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}"
-                                class="song_play" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a>
+                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play set" onClick="get_only_song({{$song->id}})">{{$song->name}}</a>
                 @else
-                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}"
-                                class="song_play" onClick="get_detail_song({{$song->id}})">{{$song->name}},</a>
+                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play set" onClick="get_only_song({{$song->id}})">{{$song->name}},</a>
                 @endif
                  @endforeach
             </span>
@@ -36,7 +34,7 @@
             </a>
             <ul class="pro_dropdown_menu">
                 <li><a href="{{route('user.index')}}">Trang cá nhân</a></li>
-                <li><a href="#">Cài đặt</a></li>
+                <li><a href="#">Hỗ trợ</a></li>
                 <li><a href="{{route('logout')}}">Đăng xuất</a></li>
             </ul>
             @else

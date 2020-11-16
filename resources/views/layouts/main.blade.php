@@ -68,6 +68,8 @@
         $('#success_signin').modal('show');
         @elseif(Session::has('message'))
         $('#err_login').modal('show');
+        @elseif(Session::has('mess'))
+        $('#err_update').modal('show');
         @endif
 
 

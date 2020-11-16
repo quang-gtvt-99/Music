@@ -20,7 +20,7 @@
                                 <div class="ms_song_overlay">
                                 </div>
                                 <div class="ms_play_icon">
-                                    <img src="{{asset('MusicLayout/images/svg/play.svg')}}" alt="">
+                                    <img src="{{asset('MusicLayout/images/svg/play.svg')}}" alt="" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play set" onClick="get_only_song({{$song->id}})">
                                 </div>
                             </div>
                             <div class="w_tp_song_name">
