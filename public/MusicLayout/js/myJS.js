@@ -117,8 +117,7 @@ function update_art(e) {
 function get_only_song(id) {
     $.get('/home/detail/' + id, function (data) {
         var obj = JSON.parse(data);
-        $('#jquery_jplayer_1').jPlayer("clearMedia");
-        console.log('conti');
+        $("#jquery_jplayer_1").jPlayer( "destroy" );
         $("#jquery_jplayer_1").jPlayer({
             ready: function () {
                 $(this).jPlayer("setMedia", {

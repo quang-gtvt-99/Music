@@ -18,7 +18,7 @@
                     @endforeach
                     <div class="ms_banner_btn">
                         <a href="javascript:void(0)" class="ms_btn play_now" onclick="get_detail_album()">Nghe bây giờ</a>
-                        <a href="#" class="ms_btn">Thêm vào sau</a>
+                        <a href="{{route('albumFavourite')}}" class="ms_btn">Thêm thư viện</a>
                     </div>
                 </div>
             </div>

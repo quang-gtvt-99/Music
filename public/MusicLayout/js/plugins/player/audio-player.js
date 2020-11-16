@@ -9,7 +9,7 @@ function get_detail_song(id) {
 };
 
 function get_detail_album() {
-    $.get('home/play/album', function (data) {
+    $.get('home/play/album', function (data) {  
         sessionStorage.clear();
         var rev = JSON.parse(data);
         for(let i=0;i<rev.length;i++){

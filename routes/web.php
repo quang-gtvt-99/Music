@@ -45,6 +45,11 @@ Route::prefix('home')->group(function () {
         'uses' => 'App\Http\Controllers\HomeController@albumTop'
     ]);
 
+    Route::get('/add/album', [
+        'as' => 'albumFavourite',
+        'uses' => 'App\Http\Controllers\HomeController@albumFavourite'
+    ]);
+
    
     
 });
