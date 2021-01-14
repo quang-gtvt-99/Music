@@ -26,12 +26,14 @@ class AlbumController extends Controller
 
     public function index(){
         $albumAll = $this->album->get();
-        return view('album.index',compact('albumAll'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('album.index',compact('albumAll','songT1'));
     }
 
     public function detailAlbum($id){
         $album = $this->album->find($id);
         $albumAll = $this->album->get();
-        return view('album.detailAlbum', compact('album','albumAll'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('album.detailAlbum', compact('album','albumAll','songT1'));
     }
 }

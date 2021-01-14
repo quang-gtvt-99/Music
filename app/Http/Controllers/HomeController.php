@@ -33,21 +33,73 @@ class HomeController extends Controller
         $genres = $this->genres->get();
         $albums = $this->album->orderBy('number_visit', 'desc')->take(5)->get();
         $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
-        return view('home', compact('songs', 'artists', 'songRelase', 'genres', 'albums','songT1'));
+        $albumTop = $this->album->orderBy('number_visit', 'desc')->take(5)->get();
+        return view('home', compact('songs', 'artists', 'songRelase', 'genres', 'albums', 'songT1', 'albumTop'));
     }
 
     public function getSearch(Request $request)
     {
         $song = $this->song->where('name', 'like', '%' . $request->key . '%')->get();
-        return view('home.search', compact('song'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        $artist = $this->artist->where('name', 'like', '%' . $request->key . '%')->get();
+        return view('home.search', compact('song', 'songT1', 'artist'));
     }
 
     public function details($id)
     {
         $song = $this->song->find($id);
         $songAll = $this->song->get();
-        $art=$song->artists;
-        echo($song);
-       //echo($art);
+        $art = $song->artists;
+        echo ($song);
+        //echo($art);
+    }
+
+    public function albumTop()
+    {
+        $arr = array();
+        $albumTop = $this->album->orderBy('number_visit', 'desc')->take(5)->get();
+        foreach ($albumTop as $album) {
+            foreach ($album->songs as $song) {
+                $art = $song->artists;
+                array_push($arr, json_decode($song, true));
+            }
+        }
+        print_r(json_encode($arr));
+    }
+
+    public function song()
+    {
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('partials.header', compact('songT1'));
+    }
+
+    public function albumFavourite()
+    {
+        $albumTop = $this->album->orderBy('number_visit', 'desc')->take(5)->get();
+        $list = session()->get('list');
+        foreach ($albumTop as $album) {
+            foreach ($album->songs as $song) {
+                $art = $song->artists;
+                if (isset($list[$song->id])) {
+                    return response()->json([
+                        'code' => 201,
+                        'message' => 'error'
+                    ], 200);
+                } else {
+                    $list[$song->id] = [
+                        'id' => $song->id,
+                        'name' => $song->name,
+                        'time' => $song->time,
+                        'img_path' => $song->img_path,
+                        'song_path' => $song->song_path
+                    ];
+                }
+            }
+        }
+        session()->put('list', $list);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Thành công'
+        ], 200);
     }
 }

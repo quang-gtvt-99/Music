@@ -372,10 +372,9 @@ Assigned to: Theme Forest
                 }
             });
             //
-            $('.jp_queue_cls').on('click', function(e) {
+            $('.cls').on('click', function(e) {
                 $('#playlist-wrap').hide();
             });
-
         },
         // Nice Select
         Nice_select: function() {
@@ -424,6 +423,7 @@ Assigned to: Theme Forest
     jQuery(window).on('load', function() {
         setTimeout(function() {
             $('body').addClass('loaded');
+            setAudio();
         }, 500);
         // Li Lenght
         if ($('.jp-playlist ul li').length > 3) {

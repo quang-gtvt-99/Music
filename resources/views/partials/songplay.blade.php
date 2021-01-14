@@ -22,7 +22,6 @@
                         <ul>
                             <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_download"></i></span>Tải xuống</a></li>
                             <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_fav"></i></span>Thêm vào danh sách</a></li>
-                            <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_playlist"></i></span>Thêm vao Playlist</a></li>
                             <li><a href="#"><span class="song_optn_icon"><i class="ms_icon icon_share"></i></span>Chia sẻ</a></li>
                         </ul>
                     </div>
@@ -32,7 +31,7 @@
                 <div class="jp_queue_wrapper">
                     <span class="que_text" id="myPlaylistQueue"><i class="fa fa-angle-up" aria-hidden="true"></i> Danh sách</span>
                     <div id="playlist-wrap" class="jp-playlist">
-                        <div class="jp_queue_cls"><i class="fa fa-times" aria-hidden="true"></i></div>
+                        <div class="jp_queue_cls cls"><i class="fa fa-times" aria-hidden="true"></i></div>
                         <h2>Đang phát</h2>
                         <div class="jp_queue_list_inner">
                             <ul>
@@ -40,8 +39,8 @@
                             </ul>
                         </div>
                         <div class="jp_queue_btn">
-                            <a href="javascript:;" class="ms_clear" data-toggle="modal" data-target="#clear_modal">clear</a>
-                            <a href="clear_modal.html" class="ms_save" data-toggle="modal" data-target="#save_modal">save</a>
+                            <a href="javascript:;" class="ms_clear" data-toggle="modal" data-target="#clear_modal">Xoá</a>
+                            <a href="#" class="ms_save cls" >Huỷ bỏ</a>
                         </div>
                     </div>
                 </div>

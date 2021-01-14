@@ -18,7 +18,7 @@
                                         </div>
                                     </div>
                                     <div class="ms_rcnt_box_text">
-                                        <h3><a href="{{route('artist.detail',['id'=>$art->id])}}">{{$art->name}}</a></h3>
+                                        <h3><a href="{{route('artist.detail',['id'=>$art->id])}}" class="artist_play" data-url="{{route('artist.update',['id'=>$art->id])}}">{{$art->name}}</a></h3>
                                     </div>
                                 </div>
                             </div>

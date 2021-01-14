@@ -35,6 +35,22 @@ Route::prefix('home')->group(function () {
         'uses' => 'App\Http\Controllers\HomeController@details'
     ]);
 
+    Route::get('/song', [
+        'as' => 'home.song',
+        'uses' => 'App\Http\Controllers\HomeController@song'
+    ]);
+
+    Route::get('/play/album', [
+        'as' => 'albumTop',
+        'uses' => 'App\Http\Controllers\HomeController@albumTop'
+    ]);
+
+    Route::get('/add/album', [
+        'as' => 'albumFavourite',
+        'uses' => 'App\Http\Controllers\HomeController@albumFavourite'
+    ]);
+
+   
     
 });
 
@@ -47,6 +63,16 @@ Route::prefix('artist')->group(function () {
     Route::get('/detail/{id}', [
         'as' => 'artist.detail',
         'uses' => 'App\Http\Controllers\ArtistController@details'
+    ]);
+
+    Route::get('/song/{id}', [
+        'as' => 'art.song',
+        'uses' => 'App\Http\Controllers\ArtistController@artistSong'
+    ]);
+
+    Route::get('/update/{id}', [
+        'as' => 'artist.update',
+        'uses' => 'App\Http\Controllers\ArtistController@update'
     ]);
     
 });
@@ -96,6 +122,11 @@ Route::prefix('user')->group(function () {
         'as' => 'user.update',
         'uses' => 'App\Http\Controllers\UserController@update'
     ]);
+
+    Route::post('/update/{id}', [
+        'as' => 'user.update',
+        'uses' => 'App\Http\Controllers\UserController@update'
+    ]);
     
 });
 
@@ -132,6 +163,16 @@ Route::prefix('song')->group(function () {
         'uses' => 'App\Http\Controllers\SongController@update'
     ]);
 
+    Route::post('/updateD/{id}', [
+        'as' => 'song.updateD',
+        'uses' => 'App\Http\Controllers\SongController@updateD'
+    ]);
+
+    Route::get('/showcmt/{id}', [
+        'as' => 'song.showcmt',
+        'uses' => 'App\Http\Controllers\SongController@showCmt'
+    ]);
+
     
 });
 
@@ -155,8 +196,20 @@ Route::get('/logout', [
     'uses' => 'App\Http\Controllers\UserController@logout'
 ]);
 
-Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
-Route::get('/callback/{provider}', 'SocialController@callback');
+
+Route::get('/language/{language}', [
+    'as' => 'language',
+    'uses' => 'App\Http\Controllers\LanguageController@index'
+]);
+
+Route::get('/auth/redirect/{provider}', [
+    'as' => 'loginfb',
+    'uses' => 'App\Http\Controllers\UserController@redirect'
+]);
+Route::get('/callback/{provider}', [
+    'as' => 'callbackfb',
+    'uses' => 'App\Http\Controllers\UserController@callback'
+]);
 
 Route::get('{file}', [
     'as' => 'download',

@@ -14,7 +14,7 @@
                     <div class="ms_register_form">
                         <h2>Đăng kí / Đăng nhập</h2>
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Nhập tên của bạn" class="form-control">
+                            <input type="text" name="name" placeholder="Nhập tên của bạn" class="form-control" required>
                             <span class="form_icon">
                                 <i class="fa_icon form-user" aria-hidden="true"></i>
                             </span>
@@ -25,7 +25,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" placeholder="Nhập email" class="form-control">
+                            <input type="email" name="email" placeholder="Nhập email" class="form-control" required>
                             <span class="form_icon">
                                 <i class="fa_icon form-envelope" aria-hidden="true"></i>
                             </span>
@@ -36,7 +36,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" placeholder="Nhập mật khẩu" class="form-control">
+                            <input type="password" name="password" placeholder="Nhập mật khẩu" class="form-control" required>
                             <span class="form_icon">
                                 <i class="fa_icon form-lock" aria-hidden="true"></i>
                             </span>
@@ -47,7 +47,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <input type="password" name="confirmpass" placeholder="Nhập lại mật khẩu" class="form-control">
+                            <input type="password" name="confirmpass" placeholder="Nhập lại mật khẩu" class="form-control" required>
                             <span class="form_icon">
                                 <i class=" fa_icon form-lock" aria-hidden="true"></i>
                             </span>

@@ -64,15 +64,6 @@
 					</a>
 				</li>
 
-				<li><a href="{{ route('topDL.index') }}" id="tab4" title="Top download">
-						<span class="nav_icon">
-							<span class="icon icon_music"></span>
-						</span>
-						<span class="nav_text">
-							Top Download
-						</span>
-					</a>
-				</li>
 
 				<li><a href="{{route('song.showlist')}}" title="Yêu thích">
 						<span class="nav_icon">

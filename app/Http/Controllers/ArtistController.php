@@ -23,12 +23,31 @@ class ArtistController extends Controller
     public function index(){
         $artists = $this->artist->take(6)->get();
         $artistAll = $this->artist->get();
-        return view('artist.index',compact('artists','artistAll'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('artist.index',compact('artists','artistAll','songT1'));
     }
 
     public function details($id){
         $artist = $this->artist->find($id);
         $artistAll = $this->artist->get();
-        return view('artist.detailArtist', compact('artist','artistAll'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('artist.detailArtist', compact('artist','artistAll','songT1'));
+    }
+
+    public function artistSong($id){
+        $artist = $this->artist->find($id);
+        $arr=array();
+        foreach($artist->songs as $song){
+            $art=$song->artists;
+            array_push($arr, json_decode($song, true));
+        }
+        print_r(json_encode($arr));
+    }
+
+    public function update($id)
+    {
+        $artist = $this->artist->find($id);
+        $artist->number_visit = $artist->number_visit + 1;
+        $artist->save();
     }
 }

@@ -3,11 +3,8 @@
     <div class="ms_top_left">
         <div class="ms_top_search">
             <form action="/search" method="get">
-                <input type="text" class="form-control" name="key" placeholder="Tìm kiếm">
+                <input type="text" class="form-control" name="key" placeholder="Nhập tên bài hát,ca sĩ...">
                 <button type="submit" class="fa fa-search search_icon"></button>
-                <!-- <span class="search_icon" type="submit">
-                    <img src="{{asset('MusicLayout/images/svg/search.svg')}}" alt="">
-                </span> -->
             </form>
         </div>
         <div class="ms_top_trend">
@@ -18,11 +15,9 @@
                  @foreach($songT1 as $key=> $song)
                  
                 @if($key==1)
-                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}"
-                                class="song_play" onClick="get_detail_song({{$song->id}})">{{$song->name}}</a>
+                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play set" onClick="get_only_song({{$song->id}})">{{$song->name}}</a>
                 @else
-                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}"
-                                class="song_play" onClick="get_detail_song({{$song->id}})">{{$song->name}},</a>
+                <a href="javascript:void(0)" data-url="{{route('song.update',['id'=>$song->id])}}" class="song_play set" onClick="get_only_song({{$song->id}})">{{$song->name}},</a>
                 @endif
                  @endforeach
             </span>
@@ -30,17 +25,16 @@
     </div>
     <div class="ms_top_right">
         <div class="ms_top_lang">
-            <span data-toggle="modal" data-target="#lang_modal">Ngôn ngữ <img src="{{asset('MusicLayout/images/svg/lang.svg')}}" alt=""></span>
+            <span class="dev">Ngôn ngữ <img src="{{asset('MusicLayout/images/svg/lang.svg')}}" alt=""></span>
         </div>
         <div class="ms_top_btn">
             @if(Auth::check())
-            <a href="upload.html" class="ms_btn">upload</a>
-            <a href="javascript:;" class="ms_admin_name">Chào {{Auth::user()->name}} <span class="ms_pro_name">ns</span>
+            <a href="#" class="ms_btn dev">upload</a>
+            <a href="javascript:;" class="ms_admin_name"><span class="ms_admin_title">Chào {{Auth::user()->name}}</span> <span class="ms_pro_name" style="background-image:url('{{Auth::user()->img_path}}') !important;background-repeat: no-repeat, repeat;background-size: cover"></span>
             </a>
             <ul class="pro_dropdown_menu">
                 <li><a href="{{route('user.index')}}">Trang cá nhân</a></li>
-                <li><a href="blog.html" target="_blank">Blog</a></li>
-                <li><a href="#">Cài đặt</a></li>
+                <li><a href="#">Hỗ trợ</a></li>
                 <li><a href="{{route('logout')}}">Đăng xuất</a></li>
             </ul>
             @else

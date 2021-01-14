@@ -9,10 +9,16 @@
                 <div class="ms_banner_text">
                     <h1>Tháng này</h1>
                     <h1 class="ms_color">Top Album</h1>
-                    <p>Dream your moments, Until I Met You, Gimme Some Courage, Dark Alley, One More Of A Stranger, Endless<br> Things, The Heartbeat Stops, Walking Promises, Desired Games and many more...</p>
+                    @foreach($albumTop as $key=> $album)
+                    @if($key==4)
+                    <a href="{{route('album.detail',['id'=>$album->id])}}">{{$album->name}} </a>
+                    @else
+                    <a href="{{route('album.detail',['id'=>$album->id])}}">{{$album->name}}, </a>
+                    @endif
+                    @endforeach
                     <div class="ms_banner_btn">
-                        <a href="#" class="ms_btn">Nghe bây giờ</a>
-                        <a href="#" class="ms_btn">Thêm vào thư viện</a>
+                        <a href="javascript:void(0)" class="ms_btn play_now" onclick="get_detail_album()">Nghe bây giờ</a>
+                        <a href="{{route('albumFavourite')}}" class="ms_btn">Thêm thư viện</a>
                     </div>
                 </div>
             </div>

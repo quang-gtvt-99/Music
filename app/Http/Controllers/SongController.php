@@ -7,6 +7,7 @@ use App\Models\Song;
 use App\Models\Artist;
 use App\Models\SongArtist;
 use App\Models\SongAlbum;
+use App\Models\SongUser;
 use App\Models\Album;
 use App\Models\Favourite;
 use Facade\FlareClient\Stacktrace\File;
@@ -15,7 +16,7 @@ use Illuminate\Http\Request;
 class SongController extends Controller
 {
     private  $song, $genres, $artist, $songArtist, $album, $songAlbum;
-    public function __construct(Song $song, Genres $genres, Artist $artist, SongArtist $songArtist, Album $album, SongAlbum $songAlbum, Favourite $favourite)
+    public function __construct(Song $song, Genres $genres, Artist $artist, SongArtist $songArtist, Album $album, SongAlbum $songAlbum, Favourite $favourite,SongUser $songUser)
     {
 
         $this->song = $song;
@@ -25,12 +26,14 @@ class SongController extends Controller
         $this->album = $album;
         $this->favourite = $favourite;
         $this->songAlbum = $songAlbum;
+        $this->songUser = $songUser;
     }
 
     public function index()
     {
         $songs = $this->song->paginate(10);
-        return view('song.index', compact('songs'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('song.index', compact('songs','songT1'));
     }
 
     public function details($id)
@@ -52,6 +55,7 @@ class SongController extends Controller
             ], 200);
         } else {
             $list[$id] = [
+                'id'=>$song->id,
                 'name' => $song->name,
                 'time' => $song->time,
                 'img_path' => $song->img_path,
@@ -68,7 +72,8 @@ class SongController extends Controller
     public function showList()
     {
         $list = session()->get('list');
-        return view('song.favourite', compact('list'));
+        $songT1 = $this->song->orderBy('number_listen', 'desc')->take(2)->get();
+        return view('song.favourite', compact('list','songT1'));
     }
 
     public function deleteList(Request $request)
@@ -90,6 +95,13 @@ class SongController extends Controller
     {
         $song = $this->song->find($id);
         $song->number_listen = $song->number_listen + 1;
+        $song->save();
+    }
+
+    public function updateD($id)
+    {
+        $song = $this->song->find($id);
+        $song->number_download = $song->number_download + 1;
         $song->save();
     }
 
@@ -147,6 +159,12 @@ class SongController extends Controller
             print fread($fm, min(1024 * 16, ($end - $cur) + 1));
             $cur += 1024 * 16;
         }
+    }
+
+    public function showCmt($id){
+        $song = $this->song->find($id);
+        $cmt=$this->songUser->where('id_song',$id)->get();
+        echo($cmt);
     }
 
     public function getDownload(File $file)
